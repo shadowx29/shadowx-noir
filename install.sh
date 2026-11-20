@@ -31,10 +31,10 @@ ask() {
 HERE="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 CFG="${XDG_CONFIG_HOME:-$HOME/.config}"
 BAK="$HOME/.config-backup-shadowx-$(date +%Y%m%d-%H%M%S)"
-MANAGED=(hypr waybar kitty btop rofi dunst mpv scripts)
+MANAGED=(hypr waybar btop rofi dunst mpv scripts)
 
 PACKAGES=(
-    hyprland waybar kitty rofi dunst swaybg
+    hyprland waybar rofi dunst swaybg
     grim slurp wl-clipboard brightnessctl playerctl
     pipewire pipewire-pulse wireplumber pavucontrol
     fastfetch btop mpv nautilus
@@ -50,6 +50,7 @@ check() {
     command -v apt-get >/dev/null || die "apt-get missing — this is for Kali/Debian."
     command -v sudo >/dev/null || die "sudo is required."
     [[ -d "$HERE/config" ]] || die "config/ folder not found next to install.sh."
+    command -v ghostty >/dev/null || warn "ghostty not found in PATH — install it with: snap install ghostty"
     sudo -v || die "sudo authentication failed."
     ( while true; do sudo -n true; sleep 60; kill -0 $$ 2>/dev/null || exit; done ) 2>/dev/null &
     ok "Ready."
@@ -87,12 +88,14 @@ install_configs() {
         fi
     done
 
-    for d in hypr waybar kitty btop rofi dunst mpv scripts; do
+    for d in hypr waybar btop rofi dunst mpv scripts; do
         cp -r "$HERE/config/$d" "$CFG/"
     done
     chmod +x "$CFG/scripts/"*.sh
 
     mkdir -p "$CFG/shadowx"
+    cp "$HERE/config/fastfetch/config.jsonc" "$CFG/shadowx/fastfetch.jsonc"
+    # Your Ghostty config is intentionally NOT overwritten.
     [[ -f "$CFG/hypr/user.conf" ]] || cat > "$CFG/hypr/user.conf" <<'EOF'
 # SHADOWX personal overrides
 monitor = eDP-1, 1920x1080@60, 0x0, 1

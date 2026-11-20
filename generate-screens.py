@@ -79,7 +79,7 @@ def app_menu():
 
     apps = [
         ("Firefox", "web browser"),
-        ("Kitty", "terminal emulator"),
+        ("Ghostty", "terminal emulator"),
         ("Nautilus", "file manager"),
         ("mpv", "media player"),
         ("btop", "system monitor"),

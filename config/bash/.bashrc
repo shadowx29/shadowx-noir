@@ -15,8 +15,8 @@ case ":$PATH:" in
     *) export PATH="$HOME/.local/bin:$PATH" ;;
 esac
 
-if command -v fastfetch >/dev/null 2>&1 && [[ -f "$HOME/.config/kitty/fastfetch.jsonc" ]]; then
-    fastfetch --config "$HOME/.config/kitty/fastfetch.jsonc"
+if command -v fastfetch >/dev/null 2>&1 && [[ -f "$HOME/.config/shadowx/fastfetch.jsonc" ]]; then
+    fastfetch --config "$HOME/.config/shadowx/fastfetch.jsonc"
 fi
 
 [ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local"

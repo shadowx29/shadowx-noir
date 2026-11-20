@@ -72,7 +72,7 @@ def bar_overlay():
         d.text((x + 10, y0 + 6), str(i + 1), font=F12,
                fill=(*BG, 255) if active else (*MUTED, 255))
 
-    d.text((200, y0 + 7), "// kitty — ~", font=F14, fill=(*FG, 255))
+    d.text((200, y0 + 7), "// ghostty — ~", font=F14, fill=(*FG, 255))
 
     mark = "[ SHADOWX ]  // NOIR"
     mw = text_width(d, mark, F14)
@@ -104,7 +104,7 @@ def terminal_overlay():
     d.ellipse([x0 + 18, y0 + 15, x0 + 28, y0 + 25], fill=(*RED, 255))
     d.ellipse([x0 + 36, y0 + 15, x0 + 46, y0 + 25], fill=(90, 90, 100, 255))
     d.ellipse([x0 + 54, y0 + 15, x0 + 64, y0 + 25], fill=(90, 90, 100, 255))
-    d.text((x0 + 90, y0 + 10), "kitty — SHADOWX // NOIR", font=F12, fill=(*MUTED, 255))
+    d.text((x0 + 90, y0 + 10), "ghostty — SHADOWX // NOIR", font=F12, fill=(*MUTED, 255))
 
     lines = [
         (RED, " ┌──────────────────────────────────────────┐"),
@@ -115,7 +115,7 @@ def terminal_overlay():
         (FG,  "  KERNEL    6.12-x-amd64"),
         (FG,  "  SHELL     bash 5.2"),
         (FG,  "  WM        Hyprland"),
-        (FG,  "  TERM      kitty"),
+        (FG,  "  TERM      ghostty"),
         (MUTED, ""),
         (FG,  "  CPU       Intel(R) Core(TM) i5 — Iris Xe"),
         (FG,  "  MEMORY    4.2 GiB / 15.6 GiB (27%)"),

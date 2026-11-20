@@ -82,8 +82,8 @@ After it finishes, **log out** and select **Hyprland** at the login screen.
 | Compositor | Hyprland | `~/.config/hypr/` |
 | Status bar | Waybar (bottom rail) | `~/.config/waybar/` |
 | App menu / window switch | rofi | `~/.config/rofi/shadowx.rasi` |
-| Terminal | Kitty | `~/.config/kitty/kitty.conf` |
-| Terminal banner | Fastfetch | `~/.config/kitty/fastfetch.jsonc` |
+| Terminal | **Ghostty** (your existing one, config untouched) | `~/.config/ghostty/config.ghostty` |
+| Terminal banner | Fastfetch | `~/.config/shadowx/fastfetch.jsonc` |
 | System monitor | btop | `~/.config/btop/` |
 | Notifications | dunst | `~/.config/dunst/dunstrc` |
 | Wallpaper | swaybg + rofi picker | `~/.config/scripts/wallpaper.sh` |
@@ -101,7 +101,7 @@ These are mirrored from the XFCE shortcuts that were already on the laptop.
 |---|---|
 | `ALT + F1` / `ALT + F3` / `CTRL + Escape` / `SUPER + Space` | App menu |
 | `ALT + F2` / `SUPER + R` | Run dialog |
-| `CTRL + ALT + T` / `SUPER + T` / `SUPER + Enter` | Terminal (Kitty) |
+| `CTRL + ALT + T` / `SUPER + T` / `SUPER + Enter` | Terminal (Ghostty) |
 | `CTRL + ALT + F` / `SUPER + E` / `SUPER + F` | File manager |
 | `SUPER + W` / `XF86WWW` / `XF86HomePage` | Web browser |
 | `XF86Calculator` | Calculator |
@@ -130,7 +130,7 @@ Logout / Suspend / Reboot / Shutdown.
 
 - **Monitor, scaling, keybindings:** `~/.config/hypr/user.conf`
   (this file is preserved by the installer)
-- **Colors:** `~/.config/waybar/style.css`, `~/.config/kitty/kitty.conf`,
+- **Colors:** `~/.config/waybar/style.css`, `~/.config/ghostty/config.ghostty`,
   `~/.config/rofi/shadowx.rasi`, `~/.config/btop/themes/shadowx.theme`
 - **Wallpapers:** `~/Pictures/shadowx-wallpapers/`
 - **Regenerate wallpapers:** `python3 generate-wallpaper.py`
@@ -167,7 +167,7 @@ shadowx-noir/
 └── config/
     ├── hypr/        # hyprland.conf + user.conf
     ├── waybar/      # config.jsonc + style.css
-    ├── kitty/       # kitty.conf + fastfetch.jsonc
+    ├── fastfetch/   # config.jsonc (installed to ~/.config/shadowx/)
     ├── btop/        # btop.conf + shadowx.theme
     ├── rofi/        # shadowx.rasi
     ├── dunst/       # dunstrc
