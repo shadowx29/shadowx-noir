@@ -31,10 +31,10 @@ ask() {
 HERE="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 CFG="${XDG_CONFIG_HOME:-$HOME/.config}"
 BAK="$HOME/.config-backup-shadowx-$(date +%Y%m%d-%H%M%S)"
-MANAGED=(hypr waybar btop rofi dunst mpv scripts)
+MANAGED=(hypr waybar btop rofi dunst swaylock mpv scripts)
 
 PACKAGES=(
-    hyprland waybar rofi dunst swaybg
+    hyprland waybar rofi dunst swaybg swaylock swayidle
     grim slurp wl-clipboard brightnessctl playerctl
     pipewire pipewire-pulse wireplumber pavucontrol
     fastfetch btop mpv nautilus
@@ -88,7 +88,7 @@ install_configs() {
         fi
     done
 
-    for d in hypr waybar btop rofi dunst mpv scripts; do
+    for d in hypr waybar btop rofi dunst swaylock mpv scripts; do
         cp -r "$HERE/config/$d" "$CFG/"
     done
     chmod +x "$CFG/scripts/"*.sh

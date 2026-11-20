@@ -53,6 +53,7 @@ After it finishes, **log out** and select **Hyprland** at the login screen.
 | Notifications | dunst | `~/.config/dunst/dunstrc` |
 | Wallpaper | swaybg + rofi picker | `~/.config/scripts/wallpaper.sh` |
 | Media | mpv | `~/.config/mpv/mpv.conf` |
+| Lock screen | swaylock + swayidle | `~/.config/swaylock/` |
 | Power menu | rofi + systemctl | `~/.config/scripts/power-menu.sh` |
 | Shell | Bash | `~/.bashrc` |
 
@@ -78,7 +79,8 @@ These are mirrored from the XFCE shortcuts that were already on the laptop.
 | `ALT + 1` … `ALT + 7` | Move window to workspace |
 | `Print`, `SHIFT + Print`, `ALT + Print`, `CTRL + Print`, `CTRL + ALT + Print`, `CTRL + SHIFT + Print`, `ALT + SHIFT + S` | Screenshot → file + clipboard |
 | `CTRL + SHIFT + Escape` | Task manager (btop) |
-| `CTRL + ALT + Delete` / `CTRL + ALT + L` / `SUPER + L` | Power menu |
+| `CTRL + ALT + L` / `SUPER + L` | Lock screen (clock, date, `shadowx`, red ring) |
+| `CTRL + ALT + Delete` | Power menu |
 | `SUPER + P` | Wallpaper picker |
 | `SUPER + M` | mpv (rice extra) |
 | `SUPER + ALT + R` | Reload Hyprland |
@@ -99,6 +101,8 @@ Logout / Suspend / Reboot / Shutdown.
   `~/.config/rofi/shadowx.rasi`, `~/.config/btop/themes/shadowx.theme`
 - **Wallpapers:** `~/Pictures/shadowx-wallpapers/`
 - **Regenerate wallpapers:** `python3 generate-wallpaper.py`
+- **Lock screen username:** edit `USER = "shadowx"` in
+  `~/.config/scripts/lock-bg.py`
 - **Shell overrides:** `~/.bashrc.local`
 
 ---
@@ -133,6 +137,7 @@ shadowx-noir/
     ├── rofi/        # shadowx.rasi
     ├── dunst/       # dunstrc
     ├── mpv/         # mpv.conf
-    ├── scripts/     # wallpaper, screenshot, power-menu
+    ├── swaylock/    # login screen styling
+    ├── scripts/     # wallpaper, screenshot, lock, lock-bg, power-menu
     └── bash/        # .bashrc
 ```
