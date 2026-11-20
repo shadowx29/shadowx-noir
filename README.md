@@ -28,6 +28,16 @@ Both wallpapers are generated locally by [`generate-wallpaper.py`](generate-wall
 
 [Watch the 16-second animated preview (MP4, 1920×1080)](assets/preview.mp4)
 
+### Screenshots
+
+| App menu | Power menu |
+|---|---|
+| <img src="assets/screenshots/app-menu.png" alt="App menu" width="420"> | <img src="assets/screenshots/power-menu.png" alt="Power menu" width="420"> |
+
+| Wallpaper picker | Lock / login screen |
+|---|---|
+| <img src="assets/screenshots/wallpaper-picker.png" alt="Wallpaper picker" width="420"> | <img src="assets/screenshots/lock-screen.png" alt="Lock screen" width="420"> |
+
 ---
 
 ## Contents
@@ -138,8 +148,10 @@ shadowx-noir/
 ├── install.sh
 ├── generate-wallpaper.py
 ├── generate-preview.py
+├── generate-screens.py
 ├── assets/
 │   ├── preview.mp4
+│   ├── screenshots/     # app-menu, power-menu, wallpaper-picker, lock-screen
 │   └── wallpapers/
 │       ├── shadowx-void.png
 │       └── shadowx-grid.png
