@@ -38,6 +38,17 @@ Both wallpapers are generated locally by [`generate-wallpaper.py`](generate-wall
 
 <img src="assets/screenshots/wallpaper-picker.png" alt="Wallpaper picker" width="520">
 
+### Terminal (Ghostty)
+
+<img src="assets/screenshots/terminal.png" alt="Ghostty terminal" width="520">
+
+### Lock screen (picture only)
+
+<img src="assets/screenshots/lock-screen.png" alt="Lock screen concept" width="520">
+
+> The lock screen above is a **concept image only** — no lock-screen code or
+> functionality is included in this rice.
+
 ---
 
 ## Contents
@@ -160,7 +171,7 @@ shadowx-noir/
 ├── generate-screens.py
 ├── assets/
 │   ├── preview.mp4
-│   ├── screenshots/     # app-menu, power-menu, wallpaper-picker
+│   ├── screenshots/     # app-menu, power-menu, wallpaper-picker, terminal, lock-screen
 │   └── wallpapers/
 │       ├── shadowx-void.png
 │       └── shadowx-grid.png

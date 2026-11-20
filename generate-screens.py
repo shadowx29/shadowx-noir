@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 SHADOWX // NOIR — UI mockup screenshots.
-Generates: app-menu.png, power-menu.png, wallpaper-picker.png
+Generates: app-menu.png, power-menu.png, wallpaper-picker.png, lock-screen.png, terminal.png
 Usage: python3 generate-screens.py
 """
 from PIL import Image, ImageDraw, ImageFont
@@ -153,7 +153,84 @@ def wallpaper_picker():
     save(Image.alpha_composite(base, layer), "wallpaper-picker.png")
 
 
+def lock_screen():
+    """Picture only — no lock-screen code is shipped with the rice."""
+    base = background("void", 165)
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer, "RGBA")
+    cx = W // 2
+
+    d.line([(cx - 60, 150), (cx + 60, 270)], fill=(*RED, 235), width=8)
+    d.line([(cx + 60, 150), (cx - 60, 270)], fill=(*RED, 235), width=8)
+    d.ellipse([cx - 20, 195, cx + 20, 235], outline=(*RED, 255), width=4)
+
+    clock = "21:47"
+    d.text((cx - tw(d, clock, F56) // 2, 320), clock, font=F56, fill=(*FG, 255))
+    date = "FRI 20 NOV 2026"
+    d.text((cx - tw(d, date, F14) // 2, 420), date, font=F14, fill=(*MUTED, 255))
+
+    cy = 610
+    d.ellipse([cx - 62, cy - 62, cx + 62, cy + 62], outline=(*LINE, 255), width=6)
+    d.arc([cx - 62, cy - 62, cx + 62, cy + 62], start=0, end=280, fill=(*RED, 255), width=6)
+    d.ellipse([cx - 48, cy - 48, cx + 48, cy + 48], fill=(12, 12, 16, 245))
+    dots = "••••"
+    d.text((cx - tw(d, dots, F18) // 2, cy - 18), dots, font=F18, fill=(*FG, 255))
+    user = "shadowx"
+    d.text((cx - tw(d, user, F14) // 2, cy + 96), user, font=F14, fill=(*MUTED, 255))
+
+    foot = "SHADOWX // NOIR  —  ENTER PASSWORD"
+    d.text((cx - tw(d, foot, F12) // 2, H - 90), foot, font=F12, fill=(*RED, 255))
+    save(Image.alpha_composite(base, layer), "lock-screen.png")
+
+
+def terminal_screen():
+    """Ghostty-style terminal picture with the SHADOWX Fastfetch banner."""
+    base = background("void", 35)
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer, "RGBA")
+
+    # Borderless, semi-transparent Ghostty-like surface (Gruvbox charcoal).
+    x0, y0, w, h = 130, 80, 1660, 920
+    d.rectangle([x0, y0, x0 + w, y0 + h], fill=(29, 32, 33, 225))
+    d.line([(x0, y0), (x0 + w, y0)], fill=(*RED, 160), width=2)
+    d.text((x0 + 28, y0 + 20), "ghostty", font=F12, fill=(168, 153, 132, 220))
+
+    gruv_fg = (251, 241, 199)
+    gruv_dim = (168, 153, 132)
+    yellow = (250, 189, 47)
+
+    lines = [
+        (RED, " ┌──────────────────────────────────────────┐"),
+        (gruv_fg, " │ SHADOWX // NOIR                         │"),
+        (RED, " └──────────────────────────────────────────┘"),
+        (None, ""),
+        (gruv_fg, "  OS        Kali GNU/Linux 2026.3"),
+        (gruv_fg, "  KERNEL    7.2.15+kali-amd64"),
+        (gruv_fg, "  SHELL     bash 5.2"),
+        (gruv_fg, "  WM        Hyprland"),
+        (gruv_fg, "  TERM      ghostty"),
+        (None, ""),
+        (gruv_fg, "  CPU       Intel(R) Core(TM) i5-1335U"),
+        (gruv_fg, "  MEMORY    6.1 GiB / 15.3 GiB (40%)"),
+        (gruv_fg, "  DISK      83 GiB / 256 GiB (32%)"),
+        (gruv_fg, "  UPTIME    4h 14m"),
+        (None, ""),
+        (RED, " // SHADOWX — OWN YOUR DESKTOP"),
+    ]
+    y = y0 + 90
+    for color, txt in lines:
+        if txt:
+            d.text((x0 + 60, y), txt, font=F16, fill=(*color, 255))
+        y += 38
+
+    d.text((x0 + 60, y + 20), "$ ", font=F16, fill=(*RED, 255))
+    d.rectangle([x0 + 92, y + 24, x0 + 112, y + 46], fill=(*yellow, 255))
+    save(Image.alpha_composite(base, layer), "terminal.png")
+
+
 if __name__ == "__main__":
     app_menu()
     power_menu()
     wallpaper_picker()
+    lock_screen()
+    terminal_screen()
