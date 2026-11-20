@@ -22,8 +22,17 @@ Both wallpapers are generated locally by [`generate-wallpaper.py`](generate-wall
 
 ---
 
+## Preview
+
+[![SHADOWX // NOIR preview](assets/wallpapers/shadowx-void.png)](assets/preview.mp4)
+
+[Watch the 16-second animated preview (MP4, 1920×1080)](assets/preview.mp4)
+
+---
+
 ## Contents
 
+- [Preview](#preview)
 - [Install](#install)
 - [What's inside](#whats-inside)
 - [Keybindings](#keybindings)
@@ -128,7 +137,9 @@ shadowx-noir/
 ├── README.md
 ├── install.sh
 ├── generate-wallpaper.py
+├── generate-preview.py
 ├── assets/
+│   ├── preview.mp4
 │   └── wallpapers/
 │       ├── shadowx-void.png
 │       └── shadowx-grid.png
