@@ -1,0 +1,77 @@
+/* SHADOWX // NOIR — rofi menu */
+* {
+  font:   "JetBrainsMono Nerd Font 12";
+  bg:     #0a0a0c;
+  panel:  #101014;
+  fg:     #e8e8ec;
+  muted:  #7a7a85;
+  red:    #cc1515;
+  line:   #26262e;
+}
+
+window {
+  background-color: @bg;
+  border: 1px solid @red;
+  width: 620px;
+  location: north;
+  anchor: center;
+  y-offset: 14%;
+}
+
+inputbar {
+  children: [prompt, entry];
+  padding: 14px 18px;
+  spacing: 14px;
+  background-color: @panel;
+  border-bottom: 1px solid @line;
+}
+
+prompt {
+  text: "[SHADOWX]";
+  color: @red;
+  font: "JetBrainsMono Nerd Font Bold 12";
+}
+
+entry {
+  placeholder: "search / run...";
+  color: @fg;
+  placeholder-color: @muted;
+  caret-color: @red;
+}
+
+listview {
+  lines: 8;
+  columns: 1;
+  spacing: 2px;
+  padding: 10px 10px 14px;
+  background-color: @bg;
+}
+
+element {
+  padding: 7px 14px;
+  color: @muted;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+element selected {
+  color: @fg;
+  background-color: rgba(204, 21, 21, 0.18);
+  border-left: 3px solid @red;
+}
+
+scrollbar {
+  width: 5px;
+  background-color: @bg;
+}
+
+scrollbar thumb {
+  background-color: @red;
+}
+
+message {
+  padding: 12px;
+  color: @fg;
+  background-color: @panel;
+  border: 1px solid @line;
+}

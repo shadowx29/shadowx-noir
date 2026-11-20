@@ -1,0 +1,20 @@
+# SHADOWX // NOIR — lock styling
+# Wallpaper image is supplied by scripts/lock.sh so $HOME expands.
+font = JetBrainsMono Nerd Font
+font-size = 14
+show_indicators = yes
+inside-color = 0a0a0cff
+inside-ver-color = 0a0a0cff
+inside-wrong-color = cc1515ff
+ring-color = 26262eff
+ring-ver-color = cc1515ff
+ring-wrong-color = cc1515ff
+line-color = cc1515ff
+line-ver-color = cc1515ff
+line-wrong-color = cc1515ff
+text-color = e8e8ecff
+text-ver-color = e8e8ecff
+text-wrong-color = e8e8ecff
+separator-color = 26262eff
+key-hl-color = cc1515ff
+bs-hl-color = cc1515ff

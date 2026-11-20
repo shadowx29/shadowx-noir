@@ -1,0 +1,70 @@
+{
+  "layer": "bottom",
+  "position": "bottom",
+  "height": 34,
+  "fixed-center": true,
+  "spacing": 0,
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["custom/mark"],
+  "modules-right": ["cpu", "memory", "network", "pulseaudio", "battery", "clock", "custom/power"],
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate",
+    "persistent_workspaces": { "1": false, "2": false, "3": false, "4": false, "5": false }
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 40,
+    "separator": "  "
+  },
+
+  "custom/mark": {
+    "format": "<span foreground='#cc1515'>[</span> SHADOWX <span foreground='#cc1515'>]</span>  <span foreground='#7a7a85'>// NOIR</span>",
+    "tooltip": false
+  },
+
+  "cpu": {
+    "format": "<span foreground='#7a7a85'>CPU</span> {usage:02d}%",
+    "interval": 3
+  },
+
+  "memory": {
+    "format": "<span foreground='#7a7a85'>MEM</span> {percentage}%",
+    "interval": 3
+  },
+
+  "network": {
+    "format-wifi": "<span foreground='#7a7a85'>NET</span> {essid}",
+    "format-ethernet": "<span foreground='#7a7a85'>ETH</span> {ifname}",
+    "format-disconnected": "<span foreground='#cc1515'>NET OFFLINE</span>",
+    "max-length": 16,
+    "tooltip-format": "{ipaddr}"
+  },
+
+  "pulseaudio": {
+    "format": "<span foreground='#7a7a85'>VOL</span> {volume}%",
+    "format-muted": "<span foreground='#cc1515'>MUTE</span>",
+    "on-click": "pavucontrol"
+  },
+
+  "battery": {
+    "format": "<span foreground='#7a7a85'>BAT</span> {capacity}%",
+    "format-charging": "<span foreground='#7a7a85'>BAT</span> {capacity}%+",
+    "interval": 30,
+    "states": { "warning": 20, "critical": 10 }
+  },
+
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%a %d.%m}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip-format": "Power menu",
+    "on-click": "$HOME/.config/scripts/power-menu.sh"
+  }
+}

@@ -1,0 +1,43 @@
+# SHADOWX // NOIR — notifications
+[global]
+    font = JetBrainsMono Nerd Font 11
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    origin = top-right
+    offset = 22x54
+    width = 340
+    height = 130
+    geometry = "340x130-22+54"
+    border_width = 1
+    border_radius = 0
+    frame_width = 1
+    frame_color = "#cc1515"
+    padding = 11
+    horizontal_padding = 12
+    separator_color = "#26262e"
+    separator_height = 1
+    indicate_hidden = yes
+    word_wrap = yes
+    ignore_newline = no
+    idle_threshold = 120
+    show_age_threshold = 60
+    stack_duplicates = true
+    startup_notification = false
+    dmenu = rofi -dmenu -p notify -theme $HOME/.config/rofi/shadowx.rasi
+    browser = xdg-open
+
+[urgency_low]
+    background = "#101014"
+    foreground = "#e8e8ec"
+    timeout = 4
+
+[urgency_normal]
+    background = "#101014"
+    foreground = "#e8e8ec"
+    timeout = 6
+
+[urgency_critical]
+    background = "#cc1515"
+    foreground = "#0a0a0c"
+    frame_color = "#cc1515"
+    timeout = 0

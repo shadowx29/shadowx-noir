@@ -1,0 +1,104 @@
+/* SHADOWX // NOIR — bottom rail */
+@define-color bg        #0d0d10;
+@define-color red       #cc1515;
+@define-color fg        #e8e8ec;
+@define-color muted     #7a7a85;
+@define-color line      #26262e;
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "IBM Plex Mono", monospace;
+  font-size: 12px;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+window#waybar {
+  background-color: @bg;
+  border-top: 1px solid alpha(@red, 0.55);
+  color: @fg;
+}
+
+#workspaces button {
+  min-width: 34px;
+  padding: 0 6px;
+  color: @muted;
+  background-color: transparent;
+  transition: color 120ms ease, background-color 120ms ease;
+}
+
+#workspaces button:hover {
+  color: @fg;
+  background-color: rgba(204, 21, 21, 0.12);
+}
+
+#workspaces button.active {
+  color: @fg;
+  background-color: @red;
+}
+
+#workspaces button.urgent {
+  color: @red;
+}
+
+#window {
+  padding: 0 16px 0 10px;
+  color: @fg;
+}
+
+#custom-mark {
+  padding: 0 22px;
+  letter-spacing: 1px;
+}
+
+#cpu, #memory, #network, #pulseaudio, #battery {
+  padding: 0 14px;
+  margin: 5px 0;
+  color: @fg;
+  border-left: 1px solid @line;
+}
+
+#pulseaudio:hover, #custom-power:hover {
+  background-color: @red;
+  color: @bg;
+}
+
+#pulseaudio.muted, #network.disconnected, #battery.critical {
+  color: @red;
+}
+
+#battery.critical {
+  background-color: @red;
+  color: @bg;
+}
+
+#clock {
+  padding: 0 16px;
+  margin: 5px 0;
+  color: @bg;
+  background-color: @red;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#custom-power {
+  padding: 0 14px;
+  margin: 5px 0;
+  color: @red;
+  border-left: 1px solid @line;
+  font-size: 15px;
+}
+
+tooltip {
+  background: @bg;
+  border: 1px solid @red;
+}
+
+tooltip label {
+  color: @fg;
+  padding: 6px 9px;
+}
