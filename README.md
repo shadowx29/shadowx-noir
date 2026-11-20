@@ -36,7 +36,7 @@ Both wallpapers are generated locally by [`generate-wallpaper.py`](generate-wall
 ## Install
 
 ```bash
-git clone <this-repo-url>
+git clone https://github.com/shadowx29/shadowx-noir.git
 cd shadowx-noir
 bash install.sh
 ```
