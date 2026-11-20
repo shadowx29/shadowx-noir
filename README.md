@@ -38,6 +38,11 @@ Both wallpapers are generated locally by [`generate-wallpaper.py`](generate-wall
 |---|---|
 | <img src="assets/screenshots/wallpaper-picker.png" alt="Wallpaper picker" width="420"> | <img src="assets/screenshots/lock-screen.png" alt="Lock screen" width="420"> |
 
+The login screen is **live**: every time you lock, a background is regenerated
+with the current clock, date and the username `shadowx`, and the red password
+ring sits at the centre of that layout. Change the user in
+`~/.config/scripts/lock-bg.py` (`USER = "shadowx"`).
+
 ---
 
 ## Contents
@@ -164,6 +169,6 @@ shadowx-noir/
     ├── dunst/       # dunstrc
     ├── swaylock/    # config
     ├── mpv/         # mpv.conf
-    ├── scripts/     # wallpaper, screenshot, lock, power-menu
+    ├── scripts/     # wallpaper, screenshot, lock, lock-bg, power-menu
     └── bash/        # .bashrc
 ```

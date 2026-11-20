@@ -1,20 +1,30 @@
-# SHADOWX // NOIR — lock styling
-# Wallpaper image is supplied by scripts/lock.sh so $HOME expands.
-font = JetBrainsMono Nerd Font
-font-size = 14
-show_indicators = yes
-inside-color = 0a0a0cff
-inside-ver-color = 0a0a0cff
-inside-wrong-color = cc1515ff
-ring-color = 26262eff
-ring-ver-color = cc1515ff
-ring-wrong-color = cc1515ff
-line-color = cc1515ff
-line-ver-color = cc1515ff
-line-wrong-color = cc1515ff
-text-color = e8e8ecff
-text-ver-color = e8e8ecff
-text-wrong-color = e8e8ecff
-separator-color = 26262eff
-key-hl-color = cc1515ff
-bs-hl-color = cc1515ff
+# SHADOWX // NOIR — login page styling
+# Clock, date and username are drawn into the generated lock background.
+# The password ring is positioned by swaylock at the centre of that layout.
+scaling=fill
+indicator-idle-visible
+indicator-x-position=960
+indicator-y-position=610
+indicator-radius=48
+indicator-thickness=6
+font=DejaVu Sans Mono
+font-size=20
+inside-color=0a0a0cff
+inside-clear-color=0a0a0cff
+inside-ver-color=0a0a0cff
+inside-wrong-color=cc1515ff
+ring-color=26262eff
+ring-clear-color=cc1515ff
+ring-ver-color=cc1515ff
+ring-wrong-color=cc1515ff
+line-color=cc1515ff
+line-clear-color=cc1515ff
+line-ver-color=cc1515ff
+line-wrong-color=cc1515ff
+separator-color=26262eff
+text-color=e8e8ecff
+text-clear-color=e8e8ecff
+text-ver-color=e8e8ecff
+text-wrong-color=e8e8ecff
+key-hl-color=cc1515ff
+bs-hl-color=cc1515ff
