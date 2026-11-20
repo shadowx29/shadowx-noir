@@ -1,13 +1,51 @@
 # SHADOWX // NOIR
 
-**SHADOWX // NOIR** — an original desktop rice for Kali Linux.
-Charcoal black `#0a0a0c` · signal red `#cc1515` ·
-built for a 1920×1080 laptop with Intel integrated graphics.
+<p align="center">
+  <img src="assets/wallpapers/shadowx-void.png" alt="SHADOWX NOIR wallpaper" width="800">
+</p>
+
+<p align="center">
+  <b>SHADOWX // NOIR</b> — an original desktop rice for Kali Linux.
+  Charcoal black <code>#0a0a0c</code> · signal red <code>#cc1515</code> ·
+  built for a 1920×1080 laptop with Intel integrated graphics.
+</p>
+
+---
+
+## Gallery
+
+| Main wallpaper | Alternate wallpaper |
+|---|---|
+| <img src="assets/wallpapers/shadowx-void.png" alt="shadowx-void" width="420"> | <img src="assets/wallpapers/shadowx-grid.png" alt="shadowx-grid" width="420"> |
+
+| App menu | Power menu |
+|---|---|
+| <img src="assets/screenshots/app-menu.png" alt="App menu" width="420"> | <img src="assets/screenshots/power-menu.png" alt="Power menu" width="420"> |
+
+| Wallpaper picker | Terminal (Ghostty) |
+|---|---|
+| <img src="assets/screenshots/wallpaper-picker.png" alt="Wallpaper picker" width="420"> | <img src="assets/screenshots/terminal.png" alt="Terminal" width="420"> |
+
+### Lock screen
+
+<img src="assets/screenshots/lock-screen.png" alt="Lock screen" width="520">
+
+All images are generated locally by `generate-wallpaper.py` and `generate-screens.py`.
+
+---
+
+## Preview
+
+[![SHADOWX // NOIR preview](assets/wallpapers/shadowx-void.png)](assets/preview.mp4)
+
+[Watch the 16-second animated preview (MP4, 1920×1080)](assets/preview.mp4)
 
 ---
 
 ## Contents
 
+- [Gallery](#gallery)
+- [Preview](#preview)
 - [Install](#install)
 - [What's inside](#whats-inside)
 - [Keybindings](#keybindings)
@@ -125,7 +163,11 @@ shadowx-noir/
 ├── README.md
 ├── install.sh
 ├── generate-wallpaper.py
+├── generate-screens.py
+├── generate-preview.py
 ├── assets/
+│   ├── preview.mp4
+│   ├── screenshots/     # app-menu, power-menu, wallpaper-picker, terminal, lock-screen
 │   └── wallpapers/
 │       ├── shadowx-void.png
 │       └── shadowx-grid.png
