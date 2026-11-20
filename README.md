@@ -97,17 +97,26 @@ After it finishes, **log out** and select **Hyprland** at the login screen.
 
 | Keys | Action |
 |---|---|
-| `SUPER + Space` | Application menu |
+| `SUPER + Space` | Application menu (rofi) |
 | `SUPER + Tab` | Window switcher |
 | `SUPER + T` / `SUPER + Enter` | Kitty terminal |
+| `SUPER + E` | Nautilus file manager |
+| `SUPER + B` | Firefox |
+| `SUPER + M` | mpv media player |
+| `SUPER + P` | Wallpaper picker |
 | `SUPER + 1` … `SUPER + 5` | Switch workspace |
 | `SUPER + Q` | Close active window |
-| `SUPER + P` | Wallpaper picker |
-| `SUPER + M` | Open mpv |
+| `SUPER + SHIFT + Q` | Force-kill active window |
+| `SUPER + F` | Toggle fullscreen |
+| `SUPER + G` | Toggle floating window |
+| `SUPER + Arrow keys` | Focus window in that direction |
+| `SUPER + SHIFT + Left/Right` | Move window left/right |
 | `SUPER + R` | Reload Hyprland |
 | `SUPER + Escape` | Exit Hyprland |
-| `ALT + Tab` | Cycle windows |
-| `ALT + SHIFT + S` | Area screenshot → file + clipboard |
+| `ALT + Tab` / `ALT + SHIFT + Tab` | Cycle windows forward/back |
+| `ALT + SHIFT + S` / `Print` | Area screenshot → file + clipboard |
+| `SUPER + drag (mouse)` | Move window |
+| `SUPER + right-drag (mouse)` | Resize window |
 | Volume / brightness keys | pactl / brightnessctl |
 
 Click the **power icon** at the bottom-right of the bar for
