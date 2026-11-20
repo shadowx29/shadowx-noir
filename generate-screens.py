@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 SHADOWX // NOIR — UI mockup screenshots.
-Generates: app-menu.png, power-menu.png, wallpaper-picker.png, lock-screen.png
+Generates: app-menu.png, power-menu.png, wallpaper-picker.png
 Usage: python3 generate-screens.py
 """
 from PIL import Image, ImageDraw, ImageFont
@@ -106,7 +106,7 @@ def power_menu():
     x0, y0, w, h = 650, 150, 620, 420
     window(d, x0, y0, w, h)
     prompt_bar(d, x0, y0, w, "search / run...", "")
-    items = ["Lock", "Logout", "Suspend", "Reboot", "Shutdown"]
+    items = ["Logout", "Suspend", "Reboot", "Shutdown"]
     for i, item in enumerate(items):
         iy = y0 + 88 + i * 56
         if i == 0:
@@ -153,40 +153,7 @@ def wallpaper_picker():
     save(Image.alpha_composite(base, layer), "wallpaper-picker.png")
 
 
-def lock_screen():
-    base = background("void", 165)
-    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    d = ImageDraw.Draw(layer, "RGBA")
-
-    # Branding mark above the clock
-    cx = W // 2
-    d.line([(cx - 60, 150), (cx + 60, 270)], fill=(*RED, 230), width=8)
-    d.line([(cx + 60, 150), (cx - 60, 270)], fill=(*RED, 230), width=8)
-    d.ellipse([cx - 20, 195, cx + 20, 235], outline=(*RED, 255), width=4)
-
-    clock = "21:47"
-    d.text((cx - tw(d, clock, F56) // 2, 320), clock, font=F56, fill=(*FG, 255))
-    date = "FRI 20 NOV 2026"
-    d.text((cx - tw(d, date, F14) // 2, 420), date, font=F14, fill=(*MUTED, 255))
-
-    # Password ring
-    cy = 610
-    d.ellipse([cx - 62, cy - 62, cx + 62, cy + 62], outline=(*LINE, 255), width=6)
-    d.arc([cx - 62, cy - 62, cx + 62, cy + 62], start=0, end=280, fill=(*RED, 255), width=6)
-    d.ellipse([cx - 48, cy - 48, cx + 48, cy + 48], fill=(12, 12, 16, 245))
-    dots = "••••"
-    d.text((cx - tw(d, dots, F18) // 2, cy - 18), dots, font=F18, fill=(*FG, 255))
-
-    user = "shadowx"
-    d.text((cx - tw(d, user, F14) // 2, cy + 96), user, font=F14, fill=(*MUTED, 255))
-
-    foot = "SHADOWX // NOIR  —  ENTER PASSWORD"
-    d.text((cx - tw(d, foot, F12) // 2, H - 90), foot, font=F12, fill=(*RED, 255))
-    save(Image.alpha_composite(base, layer), "lock-screen.png")
-
-
 if __name__ == "__main__":
     app_menu()
     power_menu()
     wallpaper_picker()
-    lock_screen()

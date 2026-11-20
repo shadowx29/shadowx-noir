@@ -34,14 +34,9 @@ Both wallpapers are generated locally by [`generate-wallpaper.py`](generate-wall
 |---|---|
 | <img src="assets/screenshots/app-menu.png" alt="App menu" width="420"> | <img src="assets/screenshots/power-menu.png" alt="Power menu" width="420"> |
 
-| Wallpaper picker | Lock / login screen |
-|---|---|
-| <img src="assets/screenshots/wallpaper-picker.png" alt="Wallpaper picker" width="420"> | <img src="assets/screenshots/lock-screen.png" alt="Lock screen" width="420"> |
+### Wallpaper picker
 
-The login screen is **live**: every time you lock, a background is regenerated
-with the current clock, date and the username `shadowx`, and the red password
-ring sits at the centre of that layout. Change the user in
-`~/.config/scripts/lock-bg.py` (`USER = "shadowx"`).
+<img src="assets/screenshots/wallpaper-picker.png" alt="Wallpaper picker" width="520">
 
 ---
 
@@ -90,7 +85,6 @@ After it finishes, **log out** and select **Hyprland** at the login screen.
 | Terminal | Kitty | `~/.config/kitty/kitty.conf` |
 | Terminal banner | Fastfetch | `~/.config/kitty/fastfetch.jsonc` |
 | System monitor | btop | `~/.config/btop/` |
-| Lock / idle | swaylock + swayidle | `~/.config/swaylock/` |
 | Notifications | dunst | `~/.config/dunst/dunstrc` |
 | Wallpaper | swaybg + rofi picker | `~/.config/scripts/wallpaper.sh` |
 | Media | mpv | `~/.config/mpv/mpv.conf` |
@@ -108,7 +102,6 @@ After it finishes, **log out** and select **Hyprland** at the login screen.
 | `SUPER + T` / `SUPER + Enter` | Kitty terminal |
 | `SUPER + 1` … `SUPER + 5` | Switch workspace |
 | `SUPER + Q` | Close active window |
-| `SUPER + L` | Lock screen |
 | `SUPER + P` | Wallpaper picker |
 | `SUPER + M` | Open mpv |
 | `SUPER + R` | Reload Hyprland |
@@ -118,7 +111,7 @@ After it finishes, **log out** and select **Hyprland** at the login screen.
 | Volume / brightness keys | pactl / brightnessctl |
 
 Click the **power icon** at the bottom-right of the bar for
-Lock / Logout / Suspend / Reboot / Shutdown.
+Logout / Suspend / Reboot / Shutdown.
 
 ---
 
@@ -156,7 +149,7 @@ shadowx-noir/
 ├── generate-screens.py
 ├── assets/
 │   ├── preview.mp4
-│   ├── screenshots/     # app-menu, power-menu, wallpaper-picker, lock-screen
+│   ├── screenshots/     # app-menu, power-menu, wallpaper-picker
 │   └── wallpapers/
 │       ├── shadowx-void.png
 │       └── shadowx-grid.png
@@ -167,8 +160,7 @@ shadowx-noir/
     ├── btop/        # btop.conf + shadowx.theme
     ├── rofi/        # shadowx.rasi
     ├── dunst/       # dunstrc
-    ├── swaylock/    # config
     ├── mpv/         # mpv.conf
-    ├── scripts/     # wallpaper, screenshot, lock, lock-bg, power-menu
+    ├── scripts/     # wallpaper, screenshot, power-menu
     └── bash/        # .bashrc
 ```

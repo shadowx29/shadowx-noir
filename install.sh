@@ -31,10 +31,10 @@ ask() {
 HERE="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 CFG="${XDG_CONFIG_HOME:-$HOME/.config}"
 BAK="$HOME/.config-backup-shadowx-$(date +%Y%m%d-%H%M%S)"
-MANAGED=(hypr waybar kitty btop rofi dunst swaylock mpv scripts)
+MANAGED=(hypr waybar kitty btop rofi dunst mpv scripts)
 
 PACKAGES=(
-    hyprland waybar kitty rofi dunst swaylock swayidle swaybg
+    hyprland waybar kitty rofi dunst swaybg
     grim slurp wl-clipboard brightnessctl playerctl
     pipewire pipewire-pulse wireplumber pavucontrol
     fastfetch btop mpv nautilus
@@ -87,7 +87,7 @@ install_configs() {
         fi
     done
 
-    for d in hypr waybar kitty btop rofi dunst swaylock mpv scripts; do
+    for d in hypr waybar kitty btop rofi dunst mpv scripts; do
         cp -r "$HERE/config/$d" "$CFG/"
     done
     chmod +x "$CFG/scripts/"*.sh
@@ -131,7 +131,7 @@ main() {
     install_shell
 
     printf '\n%sDone.%s Log out and choose Hyprland.\n' "$GRN" "$R"
-    printf '  Menu: SUPER+Space   Terminal: SUPER+T   Lock: SUPER+L   Wallpaper: SUPER+P\n'
+    printf '  Menu: SUPER+Space   Terminal: SUPER+T   Wallpaper: SUPER+P\n'
     printf '  Backups: %s\n  Your overrides: %s/hypr/user.conf\n\n' "$BAK" "$CFG"
 }
 
