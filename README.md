@@ -95,29 +95,31 @@ After it finishes, **log out** and select **Hyprland** at the login screen.
 
 ## Keybindings
 
+These are mirrored from the XFCE shortcuts that were already on the laptop.
+
 | Keys | Action |
 |---|---|
-| `SUPER + Space` | Application menu (rofi) |
-| `SUPER + Tab` | Window switcher |
-| `SUPER + T` / `SUPER + Enter` | Kitty terminal |
-| `SUPER + E` | Nautilus file manager |
-| `SUPER + B` | Firefox |
-| `SUPER + M` | mpv media player |
+| `ALT + F1` / `ALT + F3` / `CTRL + Escape` / `SUPER + Space` | App menu |
+| `ALT + F2` / `SUPER + R` | Run dialog |
+| `CTRL + ALT + T` / `SUPER + T` / `SUPER + Enter` | Terminal (Kitty) |
+| `CTRL + ALT + F` / `SUPER + E` / `SUPER + F` | File manager |
+| `SUPER + W` / `XF86WWW` / `XF86HomePage` | Web browser |
+| `XF86Calculator` | Calculator |
+| `ALT + F4` / `SUPER + Q` | Close window |
+| `CTRL + ALT + Escape` | Force-close window |
+| `ALT + F11` | Fullscreen |
+| `ALT + Tab` / `ALT + SHIFT + Tab` / `SUPER + Tab` | Cycle windows |
+| `SUPER + 1` … `SUPER + 9` | Switch workspace |
+| `ALT + 1` … `ALT + 7` | Move window to workspace |
+| `Print`, `SHIFT + Print`, `ALT + Print`, `CTRL + Print`, `CTRL + ALT + Print`, `CTRL + SHIFT + Print`, `ALT + SHIFT + S` | Screenshot → file + clipboard |
+| `CTRL + SHIFT + Escape` | Task manager (btop) |
+| `CTRL + ALT + Delete` / `CTRL + ALT + L` / `SUPER + L` | Power menu |
 | `SUPER + P` | Wallpaper picker |
-| `SUPER + 1` … `SUPER + 5` | Switch workspace |
-| `SUPER + Q` | Close active window |
-| `SUPER + SHIFT + Q` | Force-kill active window |
-| `SUPER + F` | Toggle fullscreen |
-| `SUPER + G` | Toggle floating window |
-| `SUPER + Arrow keys` | Focus window in that direction |
-| `SUPER + SHIFT + Left/Right` | Move window left/right |
-| `SUPER + R` | Reload Hyprland |
+| `SUPER + M` | mpv (rice extra) |
+| `SUPER + ALT + R` | Reload Hyprland |
 | `SUPER + Escape` | Exit Hyprland |
-| `ALT + Tab` / `ALT + SHIFT + Tab` | Cycle windows forward/back |
-| `ALT + SHIFT + S` / `Print` | Area screenshot → file + clipboard |
-| `SUPER + drag (mouse)` | Move window |
-| `SUPER + right-drag (mouse)` | Resize window |
-| Volume / brightness keys | pactl / brightnessctl |
+| `SUPER + drag` / `SUPER + right-drag` | Move / resize window |
+| Volume / brightness / media keys | pactl / brightnessctl / mpv |
 
 Click the **power icon** at the bottom-right of the bar for
 Logout / Suspend / Reboot / Shutdown.
