@@ -2,12 +2,13 @@
 # SHADOWX // NOIR — main menu (rofi)
 set -euo pipefail
 S="$HOME/.config/scripts"
-CHOICE=$(printf '%b' 'File Manager\nTerminal\nWeb Browser\nWallpaper\nNotes\nClipboard\nControl Center\nPower Menu\nClose' \
+CHOICE=$(printf '%b' 'All Applications\nFile Manager\nTerminal\nWeb Browser\nWallpaper\nNotes\nClipboard\nControl Center\nPower Menu\nClose' \
   | env -u WAYLAND_DISPLAY rofi -dmenu \
       -theme "$HOME/.config/rofi/shadowx.rasi" \
       -p '[SHADOWX] MENU') || exit 0
 
 case "$CHOICE" in
+  'All Applications') exec env -u WAYLAND_DISPLAY rofi -show drun -theme "$HOME/.config/rofi/shadowx.rasi" ;;
   'File Manager')    exec nautilus ;;
   'Terminal')        exec ghostty --gtk-single-instance=true ;;
   'Web Browser')     exec firefox ;;

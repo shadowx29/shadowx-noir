@@ -41,7 +41,8 @@ addkey '<Super>Return' 'ghostty --gtk-single-instance=true'
 addkey '<Super>e' 'nautilus'
 addkey '<Super>f' 'nautilus'
 addkey '<Super>p' "$HOME/.local/bin/shadowx-wallpaper.sh"
-addkey '<Super>space' "$HOME/.config/scripts/menu.sh"
+addkey '<Super>space' 'env -u WAYLAND_DISPLAY rofi -show drun -theme $HOME/.config/rofi/shadowx.rasi'
+addkey '<Super><Shift>space' "$HOME/.config/scripts/menu.sh"
 addkey '<Super>n' "$HOME/.config/scripts/notes.sh"
 addkey '<Super>c' "$HOME/.config/scripts/clipboard.sh"
 xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>Tab" -r 2>/dev/null || true
