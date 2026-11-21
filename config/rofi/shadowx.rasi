@@ -3,7 +3,7 @@
   font: "JetBrainsMono Nerd Font 12";
   base: #0a0a0c;
   panel: #101014;
-  text: #e8e8ec;
+  txt: #e8e8ec;
   faint: #7a7a85;
   red: #cc1515;
   edge: #26262e;
@@ -11,7 +11,9 @@
 
 window {
   background-color: @base;
-  border: 1px solid @red;
+  border: 1px;
+  border-color: @red;
+  border-radius: 0;
   width: 640px;
   location: north;
   anchor: center;
@@ -23,7 +25,7 @@ inputbar {
   padding: 14px 18px;
   spacing: 14px;
   background-color: @panel;
-  border-bottom: 1px solid @edge;
+  border: 0px;
 }
 
 prompt {
@@ -34,9 +36,12 @@ prompt {
 
 entry {
   placeholder: "type to search...";
-  color: @text;
+  color: @txt;
   placeholder-color: @faint;
   caret-color: @red;
+  background-color: @panel;
+  padding: 0px;
+  border: 0px;
 }
 
 listview {
@@ -45,22 +50,44 @@ listview {
   spacing: 2px;
   padding: 10px 10px 14px;
   background-color: @base;
+  border: 0px;
 }
 
 element {
   padding: 7px 14px;
   color: @faint;
-  background-color: transparent;
+  background-color: @base;
+  border: 0px;
+  border-radius: 0;
 }
 
 element selected {
-  color: @text;
+  color: @txt;
   background-color: rgba(204, 21, 21, 0.18);
-  border-left: 3px solid @red;
+  border: 0px;
+  border-left: 3px;
+  border-color: @red;
 }
 
-scrollbar { width: 5px; background-color: @base; }
-scrollbar thumb { background-color: @red; }
+element-text {
+  vertical-align: 0.5;
+}
 
-message { padding: 12px; color: @text; background-color: @panel; border: 1px solid @edge; }
-error-message { padding: 12px; color: @text; background-color: @red; }
+scrollbar {
+  width: 5px;
+  background-color: @base;
+  border: 0px;
+}
+
+scrollbar thumb {
+  background-color: @red;
+  border: 0px;
+}
+
+message {
+  padding: 12px;
+  color: @txt;
+  background-color: @panel;
+  border: 1px;
+  border-color: @edge;
+}
