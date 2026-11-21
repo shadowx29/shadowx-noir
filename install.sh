@@ -88,6 +88,12 @@ system(){
   printf '[Seat:*]\nuser-session=shadowx\n' > "$HERE/.sess"
   sudo install -m 644 "$HERE/.sess" /etc/lightdm/lightdm.conf.d/50-shadowx.conf 2>/dev/null && good "default session set" || note "select session manually"
   rm -f "$HERE/.sess"
+  # The GTK greeter has its own default-session setting — override it too.
+  GREETER=/etc/lightdm/lightdm-gtk-greeter.conf
+  if [[ -f "$GREETER" ]] && grep -q '^default-session=' "$GREETER"; then
+    sudo sed -i 's|^default-session=.*|default-session=shadowx|' "$GREETER" 2>/dev/null \
+      && good "greeter default session set" || note "greeter default not set"
+  fi
 }
 
 verify(){
