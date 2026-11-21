@@ -5,7 +5,7 @@
 local cfghome = os.getenv("XDG_CONFIG_HOME")
 if not cfghome or cfghome == "" then cfghome = os.getenv("HOME") .. "/.config" end
 
-local function exec(cmd) return function() hl.dsp.exec_cmd(cmd) end end
+local function exec(cmd) return hl.dsp.exec_cmd(cmd) end
 local function script(name) return "'" .. cfghome .. "/scripts/" .. name .. "'" end
 
 -- ── Monitor / environment ───────────────────────────────────
