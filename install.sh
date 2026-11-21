@@ -122,6 +122,19 @@ install_shell() {
     ok ".bashrc installed."
 }
 
+setup_pam() {
+    # swaylock needs a PAM service to accept your password on Debian/Kali.
+    if [[ ! -f /etc/pam.d/swaylock ]]; then
+        log "Creating /etc/pam.d/swaylock..."
+        printf '%%PAM-1.0\n@include common-auth\n@include common-account\n@include common-session\n' \
+            | sudo tee /etc/pam.d/swaylock >/dev/null \
+            && ok "PAM service created." \
+            || warn "Could not create PAM service — lock screen may not accept your password."
+    else
+        ok "PAM service already present."
+    fi
+}
+
 main() {
     printf '\n%sSHADOWX // NOIR%s — original Kali rice, 1920x1080, Intel iGPU\n\n' "$B" "$R"
     BACKUP=true;  ask "Back up old configs?" y || BACKUP=false
@@ -132,6 +145,7 @@ main() {
     install_configs
     install_wallpapers
     install_shell
+    setup_pam
 
     printf '\n%sDone.%s Log out and choose Hyprland.\n' "$GRN" "$R"
     printf '  Menu: SUPER+Space   Terminal: SUPER+T   Wallpaper: SUPER+P\n'
