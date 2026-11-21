@@ -16,7 +16,7 @@ CFG="${XDG_CONFIG_HOME:-$HOME/.config}"
 BAK="$HOME/.config-backup-shadowx-$(date +%Y%m%d-%H%M%S)"
 
 PKGS=(
-  hyprland waybar rofi dunst swaybg swaylock swayidle
+  hyprland hyprland-qtutils hyprland-guiutils waybar rofi dunst swaybg swaylock swayidle
   grim slurp wl-clipboard cliphist brightnessctl playerctl xdotool
   pipewire pipewire-pulse wireplumber pavucontrol
   fastfetch btop mpv nautilus network-manager blueman
