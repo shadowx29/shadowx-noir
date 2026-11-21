@@ -25,12 +25,12 @@
 
   "cpu": {
     "format": "<span foreground='#7a7a85'>CPU</span> {usage:02d}%",
-    "interval": 3
+    "interval": 5
   },
 
   "memory": {
     "format": "<span foreground='#7a7a85'>MEM</span> {percentage}%",
-    "interval": 3
+    "interval": 5
   },
 
   "network": {
@@ -50,7 +50,7 @@
   "battery": {
     "format": "<span foreground='#7a7a85'>BAT</span> {capacity}%",
     "format-charging": "<span foreground='#7a7a85'>BAT</span> {capacity}%+",
-    "interval": 30,
+    "interval": 50,
     "states": { "warning": 20, "critical": 10 }
   },
 
