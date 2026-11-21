@@ -41,10 +41,10 @@ hl.config({
 })
 
 hl.curve("shadowx", { type = "bezier", points = { { 0.4, 0 }, { 0.2, 1 } } })
-hl.animation({ leaf = "windows", enabled = false, speed = 4, bezier = "shadowx", style = "slide" })
-hl.animation({ leaf = "windowsOut", enabled = false, speed = 3, bezier = "shadowx", style = "slide" })
-hl.animation({ leaf = "fade", enabled = false, speed = 4, bezier = "shadowx" })
-hl.animation({ leaf = "workspaces", enabled = false, speed = 5, bezier = "shadowx", style = "slidevert" })
+hl.animation({ leaf = "windows", enabled = true, speed = 4, bezier = "shadowx", style = "slide" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, bezier = "shadowx", style = "slide" })
+hl.animation({ leaf = "fade", enabled = true, speed = 4, bezier = "shadowx" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "shadowx", style = "slidevert" })
 
 -- ── Startup ─────────────────────────────────────────────────
 hl.on("hyprland.start", function()
@@ -53,7 +53,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("dunst")
     hl.exec_cmd("/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 &")
     hl.exec_cmd("nm-applet --indicator &")
-    hl.exec_cmd(script("power-save.sh"))
+    hl.exec_cmd("swayidle -w timeout 300 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' &")
 end)
 
 -- ── Shortcuts: menus, apps ──────────────────────────────────

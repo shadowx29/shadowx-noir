@@ -60,18 +60,6 @@ Real screenshots from the running rice.
 | Fastfetch / btop | custom layouts and palettes |
 | Screenshots | region / window / fullscreen via grim + slurp |
 
-## Battery saver
-
-`~/.config/scripts/power-save.sh` applies power-saver mode, 35% brightness and
-5-minute screen blanking at every login. Run it manually anytime:
-
-```bash
-bash ~/.config/scripts/power-save.sh
-```
-
-To save more, close unused browser tabs and switch Bluetooth off when unused:
-`bluetoothctl power off`.
-
 ## Install
 
 ```bash
