@@ -1,4 +1,4 @@
-/* SHADOWX // NOIR — launcher theme, written from scratch. */
+/* SHADOWX // NOIR — rofi 2.0 launcher theme. */
 * {
   font: "JetBrainsMono Nerd Font 12";
   base: #0a0a0c;
@@ -25,23 +25,22 @@ inputbar {
   padding: 14px 18px;
   spacing: 14px;
   background-color: @panel;
-  border: 0px;
+  border: 0;
 }
 
 prompt {
   text: "[SHADOWX]";
-  color: @red;
+  text-color: @red;
   font: "JetBrainsMono Nerd Font Bold 12";
 }
 
 entry {
   placeholder: "type to search...";
-  color: @txt;
+  text-color: @txt;
   placeholder-color: @faint;
-  caret-color: @red;
   background-color: @panel;
-  padding: 0px;
-  border: 0px;
+  padding: 0;
+  border: 0;
 }
 
 listview {
@@ -50,43 +49,75 @@ listview {
   spacing: 2px;
   padding: 10px 10px 14px;
   background-color: @base;
-  border: 0px;
+  border: 0;
 }
 
 element {
   padding: 7px 14px;
-  color: @faint;
-  background-color: @base;
-  border: 0px;
+  border: 0;
   border-radius: 0;
 }
 
-element selected {
-  color: @txt;
-  background-color: rgba(204, 21, 21, 0.18);
-  border: 0px;
-  border-left: 3px;
-  border-color: @red;
+element normal.normal {
+  background-color: @base;
+  text-color: @faint;
+}
+
+element normal.urgent {
+  background-color: @base;
+  text-color: @red;
+}
+
+element normal.active {
+  background-color: @base;
+  text-color: @txt;
+}
+
+element selected.normal {
+  background-color: rgba(204, 21, 21, 0.25);
+  text-color: @txt;
+}
+
+element selected.urgent {
+  background-color: @red;
+  text-color: @base;
+}
+
+element selected.active {
+  background-color: @red;
+  text-color: @base;
+}
+
+element alternate.normal {
+  background-color: @panel;
+  text-color: @faint;
+}
+
+element alternate.selected {
+  background-color: @red;
+  text-color: @base;
 }
 
 element-text {
+  background-color: transparent;
+  text-color: inherit;
   vertical-align: 0.5;
 }
 
 scrollbar {
   width: 5px;
   background-color: @base;
-  border: 0px;
+  border: 0;
 }
 
 scrollbar thumb {
   background-color: @red;
-  border: 0px;
+  border: 0;
 }
 
 message {
   padding: 12px;
-  color: @txt;
+  text-color: @txt;
   background-color: @panel;
   border: 1px;
   border-color: @edge;
