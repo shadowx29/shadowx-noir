@@ -174,6 +174,29 @@ def player():
     save(Image.alpha_composite(base, layer), "player.png")
 
 
+
+def logout():
+    base = bg(150)
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer, "RGBA")
+    x, y, w, h = 660, 230, 600, 470
+    d.rectangle([x, y, x + w, y + h], fill=(*BG, 252), outline=(*RED, 255), width=2)
+    d.rectangle([x + 1, y + 1, x + w - 1, y + 58], fill=(*PANEL, 255))
+    d.text((x + 22, y + 17), "[SHADOWX] POWER", font=F16, fill=(*RED, 255))
+    d.text((x + 22, y + 80), "SESSION ACTIONS", font=F12, fill=(*MUTE, 255))
+    items = ["Logout", "Suspend", "Reboot", "Shutdown", "Cancel"]
+    for i, item in enumerate(items):
+        iy = y + 120 + i * 56
+        if i == 0:
+            d.rectangle([x + 14, iy - 6, x + w - 14, iy + 40], fill=(*RED, 48))
+            d.rectangle([x + 14, iy - 6, x + 18, iy + 40], fill=(*RED, 255))
+        d.text((x + 38, iy), item, font=F16,
+               fill=(*FG, 255) if i == 0 else (*MUTE, 255))
+    d.line([(x + 20, y + h - 46), (x + w - 20, y + h - 46)], fill=(*LINE, 255), width=1)
+    d.text((x + 22, y + h - 34), "Ctrl+Alt+Delete  —  POWER MENU", font=F12, fill=(*RED, 255))
+    save(Image.alpha_composite(base, layer), "logout-screen.png")
+
+
 if __name__ == "__main__":
     terminal()
     menu()
@@ -181,3 +204,4 @@ if __name__ == "__main__":
     wallpaper_picker()
     notes()
     player()
+    logout()
