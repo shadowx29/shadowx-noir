@@ -48,9 +48,9 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "shadowx
 
 -- ── Startup ─────────────────────────────────────────────────
 hl.on("hyprland.start", function()
-    hl.exec_cmd("waybar")
     hl.exec_cmd("swaybg -i $HOME/Pictures/shadowx-wallpapers/shadowx.jpg -m fill")
     hl.exec_cmd("dunst")
+    hl.exec_cmd("waybar")
     hl.exec_cmd("shadowx-polkit &")
     hl.exec_cmd("nm-applet --indicator &")
     hl.exec_cmd("swayidle -w timeout 300 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' &")
