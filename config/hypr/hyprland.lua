@@ -49,7 +49,7 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "shadowx
 -- ── Startup ─────────────────────────────────────────────────
 hl.on("hyprland.start", function()
     hl.exec_cmd("waybar")
-    hl.exec_cmd("swaybg -i $HOME/.config/shadowx/wallpaper.current -m fill")
+    hl.exec_cmd("swaybg -i $HOME/Pictures/shadowx-wallpapers/shadowx.jpg -m fill")
     hl.exec_cmd("dunst")
     hl.exec_cmd("swayidle -w timeout 300 " .. script("lock.sh") .. " timeout 600 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' &")
     hl.exec_cmd("/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 &")
