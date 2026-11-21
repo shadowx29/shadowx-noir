@@ -60,6 +60,16 @@ Real screenshots from the running rice.
 | Fastfetch / btop | custom layouts and palettes |
 | Screenshots | region / window / fullscreen via grim + slurp |
 
+## Supported systems
+
+The installer auto-detects the distro and package manager:
+**Debian / Ubuntu / Kali (apt)**, **Arch / Manjaro / Endeavour (pacman)**,
+**Fedora (dnf)**, **openSUSE (zypper)**, **Alpine (apk)**, **Void (xbps)**.
+
+```bash
+bash install.sh --check   # show detected system and package list
+```
+
 ## Install
 
 ```bash
