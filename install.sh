@@ -151,6 +151,42 @@ setup_pam() {
     fi
 }
 
+setup_session() {
+    # Install a display-manager session that waits for logind to mark the
+    # session ACTIVE before starting Hyprland. Without this, libinput can
+    # attach zero devices (dead mouse + keyboard).
+    log "Installing SHADOWX session wrapper..."
+    sudo install -m 755 "$HERE/config/session/shadowx-session" /usr/local/bin/shadowx-session 2>/dev/null \
+        && ok "session wrapper installed" \
+        || warn "could not install session wrapper"
+
+    if [[ -d /usr/share/wayland-sessions ]]; then
+        sudo install -m 644 "$HERE/config/session/shadowx.desktop" \
+            /usr/share/wayland-sessions/shadowx.desktop 2>/dev/null \
+            && ok "session entry installed" \
+            || warn "could not install session entry"
+    fi
+
+    # Make SHADOWX the default session at the login screen.
+    printf '[Seat:*]\nuser-session=shadowx\n' > "$HERE/.lightdm-shadowx.conf"
+    sudo install -m 644 "$HERE/.lightdm-shadowx.conf" \
+        /etc/lightdm/lightdm.conf.d/50-shadowx.conf 2>/dev/null \
+        && ok "default session set to SHADOWX" \
+        || warn "could not set default session (select it manually at login)"
+    rm -f "$HERE/.lightdm-shadowx.conf"
+}
+
+verify_config() {
+    if command -v Hyprland >/dev/null 2>&1; then
+        log "Verifying Hyprland config..."
+        if Hyprland --verify-config --config "$CFG/hypr/hyprland.conf" >/dev/null 2>&1; then
+            ok "Hyprland config is valid."
+        else
+            warn "Hyprland config has errors — run 'Hyprland --verify-config --config ~/.config/hypr/hyprland.conf'"
+        fi
+    fi
+}
+
 main() {
     printf '\n%sSHADOWX // NOIR%s — original Kali rice, 1920x1080, Intel iGPU\n\n' "$B" "$R"
     BACKUP=true;  ask "Back up old configs?" y || BACKUP=false
@@ -163,8 +199,10 @@ main() {
     apply_current_wallpaper
     install_shell
     setup_pam
+    setup_session
+    verify_config
 
-    printf '\n%sDone.%s Log out and choose Hyprland.\n' "$GRN" "$R"
+    printf '\n%sDone.%s Log out and log back in — SHADOWX is now the default session.\n' "$GRN" "$R"
     printf '  Menu: SUPER+Space   Terminal: SUPER+T   Wallpaper: SUPER+P\n'
     printf '  Backups: %s\n  Your overrides: %s/hypr/user.conf\n\n' "$BAK" "$CFG"
 }

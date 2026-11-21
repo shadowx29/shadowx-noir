@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# SHADOWX // NOIR — display-manager session wrapper.
+# Waits until logind reports the session ACTIVE before starting Hyprland.
+# Starting Hyprland while the seat is still inactive makes libinput attach
+# zero devices (no mouse / no keyboard). This wrapper prevents that.
+set -u
+
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=Hyprland
+export XDG_CURRENT_DESKTOP=Hyprland
+export QT_QPA_PLATFORM=wayland
+export GDK_BACKEND=wayland
+
+# Wait up to 10 seconds for the session to become active.
+for _ in $(seq 1 40); do
+    if [[ -n "${XDG_SESSION_ID:-}" ]]; then
+        STATE=$(loginctl show-session "$XDG_SESSION_ID" -p Active --value 2>/dev/null || echo yes)
+        [[ "$STATE" == "yes" ]] && break
+    fi
+    sleep 0.25
+done
+
+exec /usr/bin/Hyprland "$@"
