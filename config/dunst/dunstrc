@@ -1,24 +1,21 @@
-# SHADOWX // NOIR — notifications
+# SHADOWX // NOIR — notification styling, written from scratch.
 [global]
     font = JetBrainsMono Nerd Font 11
     format = "<b>%s</b>\n%b"
     alignment = left
     origin = top-right
     offset = 22x54
-    width = 340
+    width = 350
     height = 130
-    geometry = "340x130-22+54"
+    geometry = "350x130-22+54"
     border_width = 1
-    border_radius = 0
     frame_width = 1
     frame_color = "#cc1515"
     padding = 11
     horizontal_padding = 12
     separator_color = "#26262e"
     separator_height = 1
-    indicate_hidden = yes
     word_wrap = yes
-    ignore_newline = no
     idle_threshold = 120
     show_age_threshold = 60
     stack_duplicates = true

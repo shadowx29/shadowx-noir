@@ -21,7 +21,7 @@ def w(d, txt, f):
     b = d.textbbox((0, 0), txt, font=f); return b[2] - b[0]
 
 def main():
-    wall = os.path.join(WALLDIR, "shadowx-custom.jpg")
+    wall = os.path.join(WALLDIR, "shadowx.jpg")
     if os.path.isfile(STATE):
         saved = open(STATE).read().strip()
         if os.path.isfile(saved): wall = saved

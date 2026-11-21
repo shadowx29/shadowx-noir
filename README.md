@@ -1,75 +1,48 @@
 # SHADOWX // NOIR
 
-A **complete desktop rice** for Kali Linux / Debian, built for your laptop
-with **your XFCE keybindings**,
-**your wallpaper**, and **your existing Ghostty terminal**.
+My own desktop rice for Kali Linux — **written from scratch**, not copied from
+anyone else's config. Your shortcuts, your wallpaper, your Ghostty terminal.
 
-- Base: charcoal `#0a0a0a` · accent `#cc1515` · text `#e8e8e8`
-- Display: 1920×1080 · Intel iGPU (blur off, light effects)
-- Desktop: Hyprland + Waybar + rofi + dunst + swaylock
+- Charcoal `#0a0a0c` · red `#cc1515` · off-white `#e8e8ec`
+- 1920×1080 laptop · Intel iGPU (blur disabled)
+- Hyprland + Waybar + rofi + dunst + swaylock
 
----
+## Wallpaper
 
-## Wallpapers
+<img src="assets/wallpapers/shadowx.jpg" alt="SHADOWX wallpaper" width="760">
 
-## Your wallpaper
+Only one wallpaper — yours. It becomes both the desktop background and the
+login-screen background. `Super+P` reapplies it.
 
-<img src="assets/wallpapers/shadowx-custom.jpg" alt="SHADOWX wallpaper" width="760">
+## Features
 
-The only wallpaper in this rice is yours — `shadowx-custom.jpg`.
-It is installed to `~/Pictures/shadowx-wallpapers/` and used as the desktop
-background and the login-screen background.
-
----
-
-## What's included (full feature set)
-
-| Feature | Implementation |
+| Feature | How |
 |---|---|
-| Hyprland workspace / animations | Hyprland 0.56 classic config with custom bezier animations |
-| NieR-style Control Center | `control-center.sh` (rofi): Wi-Fi, Bluetooth, volume, brightness, notifications, quickshare, power |
-| App menu & launcher | rofi `drun` / `run` with matching SID0NIA theme |
-| Lock screen | swaylock + generated login background (live clock, date, `shadowx`, red ring) |
-| Notifications | dunst, themed red/charcoal |
-| Media player panel | `player.sh` (playerctl + rofi) |
-| Quick notes drawer | `notes.sh` — autosaving notes with rofi |
-| Clipboard history | `clipboard.sh` (cliphist + rofi) |
-| Quickshare | `quickshare.py` — LAN file sharing with QR code |
-| Wallpaper picker | `wallpaper.sh` (rofi) + swaybg daemon |
-| Waybar | custom config + style with extra module buttons |
-| Terminal | **Ghostty** (your existing config, never overwritten) |
+| App menu / run dialog | rofi with my `shadowx.rasi` theme |
+| Control center | Wi-Fi, Bluetooth, volume, brightness, notifications, quickshare, power |
+| Lock screen | swaylock + generated background with live clock, date, `shadowx`, red ring |
+| Quick notes | `notes.sh` — autosaving notes |
+| Clipboard history | `clipboard.sh` via cliphist |
+| Media controls | `player.sh` via playerctl |
+| Quickshare | `quickshare.py` — LAN sharing with QR |
+| Status bar | Waybar, bottom rail |
+| Terminal | Ghostty (your config, untouched) |
 | Fastfetch / btop | custom layouts and palettes |
-| Fonts | IBM Plex Mono + Share Tech Mono |
-| Screenshots | region / window / full via grim + slurp + wl-copy |
-| Lock idle / DPMS | swayidle (5 min lock, 10 min screen off) |
-
----
+| Screenshots | region / window / fullscreen via grim + slurp |
+| Idle lock | swayidle (5 min lock, 10 min DPMS off) |
 
 ## Install
 
 ```bash
-cd shadowx-complete
+cd shadowx-original
 bash install.sh
 ```
 
-Press **Y** for backups and **Y** for the themed `.bashrc`, then enter your
-password. The installer:
+Answer **Y** to backups, press Enter for prompts, enter your password.
 
-1. installs all packages with `apt`
-2. backs up existing configs to `~/.config-backup-shadowx-<timestamp>`
-3. deploys configs to `~/.config`
-4. installs wallpapers + fonts
-5. creates `/etc/pam.d/swaylock` (so your password works on the lock screen)
-6. installs a session wrapper that waits for logind to mark the session active
-   (this is what makes mouse/keyboard work reliably) and sets
-   **SHADOWX // NOIR** as the default login session
-7. verifies the Hyprland config
+Then **log out** and **log back in** — SHADOWX // NOIR is the default session.
 
-Then **log out** and **log back in** — you'll land directly in the rice.
-
----
-
-## Keybindings (your XFCE shortcuts, preserved)
+## Shortcuts (yours, preserved)
 
 | Keys | Action |
 |---|---|
@@ -77,66 +50,38 @@ Then **log out** and **log back in** — you'll land directly in the rice.
 | `Alt+F2` / `Super+R` | Run dialog |
 | `Ctrl+Alt+T` / `Super+T` / `Super+Enter` | Ghostty |
 | `Ctrl+Alt+F` / `Super+E` / `Super+F` | Files |
-| `Super+W` / `XF86WWW` / `XF86HomePage` | Browser |
-| `XF86Calculator` | Calculator |
+| `Super+W` | Browser |
 | `Ctrl+Alt+Esc` / `Alt+F4` / `Super+Q` | Close window |
 | `Alt+F11` / `Super+F` | Fullscreen |
-| `Super+D` | Maximized |
-| `Super+V` | Floating |
+| `Super+D` | Maximized · `Super+V` floating |
 | `Alt+Tab` / `Alt+Shift+Tab` | Cycle windows |
-| `Super+1…9` | Workspace |
-| `Alt+1…7` | Move window to workspace |
+| `Super+1…9` | Workspace · `Alt+1…7` move window |
 | `Super+Arrows` / `Super+Shift+Arrows` | Focus / move window |
-| `Super+scroll` | Next/previous workspace |
-| `Super+drag` / `Super+right-drag` | Move / resize window |
-| `Print` + all your variants | Screenshot → file + clipboard |
-| `Ctrl+Shift+Esc` | Task manager (btop) |
-| `Ctrl+Alt+L` / `Super+L` | Lock screen |
-| `Ctrl+Alt+Delete` | Power menu |
-| `Super+Tab` | Control Center |
-| `Super+N` | Quick notes |
-| `Super+C` | Clipboard history |
-| `Super+Shift+Return` | Media player |
-| `Super+P` | Wallpaper picker |
-| `Super+Alt+R` | Reload Hyprland |
-| `Super+Escape` | Exit Hyprland |
-| Volume / brightness keys | pactl / brightnessctl |
-
----
+| `Print` + variants | Screenshot → file + clipboard |
+| `Ctrl+Shift+Esc` | btop task manager |
+| `Super+L` / `Ctrl+Alt+L` | Lock · `Ctrl+Alt+Delete` power menu |
+| `Super+Tab` | Control center · `Super+N` notes · `Super+C` clipboard |
+| `Super+Shift+Return` | Player · `Super+M` mpv |
+| `Super+P` | Wallpaper · `Super+Alt+R` reload · `Super+Escape` exit |
 
 ## Customize
 
-- **Monitor, keys, overrides:** `~/.config/hypr/user.conf` (preserved)
-- **Colors:** `~/.config/waybar/style.css`, `~/.config/rofi/shadowx.rasi`,
+- Monitor / overrides: `~/.config/hypr/user.conf`
+- Colors: `~/.config/waybar/style.css`, `~/.config/rofi/shadowx.rasi`,
   `~/.config/dunst/dunstrc`, `~/.config/btop/themes/shadowx.theme`
-- **Lock username:** `USER = "shadowx"` in `~/.config/scripts/lock-bg.py`
-- **Notes / clipboard data:** `~/.local/share/shadowx/`
-- **Shell overrides:** `~/.bashrc.local`
-- **Input check:** `bash ~/.config/scripts/check-input.sh`
-
-## Intel iGPU notes
-
-Blur and shadows are off. If video tears, uncomment
-`env = LIBVA_DRIVER_NAME, iHD` in `user.conf`.
+- Lock username: `USER = "shadowx"` in `~/.config/scripts/lock-bg.py`
+- Input check: `bash ~/.config/scripts/check-input.sh`
 
 ## Structure
 
 ```
-shadowx-complete/
+shadowx-original/
 ├── install.sh
-├── assets/
-│   ├── wallpapers/      # shadowx-custom.jpg (your wallpaper)
-│   └── fonts/           # Share Tech Mono + IBM Plex Mono
+├── assets/wallpapers/shadowx.jpg
 └── config/
-    ├── hypr/            # hyprland.conf + user.conf
-    ├── waybar/          # config.jsonc + style.css
-    ├── rofi/            # shadowx.rasi
-    ├── dunst/           # dunstrc
-    ├── swaylock/        # login screen
-    ├── scripts/         # control center, notes, clipboard, player, quickshare, etc.
-    ├── session/         # display-manager wrapper + desktop entry
-    ├── fastfetch/ btop/ # custom layouts
-    └── .bashrc
+    ├── hypr/ waybar/ rofi/ dunst/ swaylock/
+    ├── scripts/     # control center, notes, clipboard, player, wallpaper, etc.
+    ├── session/     # login-session wrapper
+    ├── fastfetch/ btop/
+    └── bash/
 ```
-
-Built from scratch for Kali Linux.

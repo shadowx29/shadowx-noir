@@ -1,18 +1,18 @@
-/* SHADOWX // NOIR — rofi menu */
+/* SHADOWX // NOIR — launcher theme, written from scratch. */
 * {
-  font:   "JetBrainsMono Nerd Font 12";
-  bg:     #0a0a0c;
-  panel:  #101014;
-  fg:     #e8e8ec;
-  muted:  #7a7a85;
-  red:    #cc1515;
-  line:   #26262e;
+  font: "JetBrainsMono Nerd Font 12";
+  base: #0a0a0c;
+  panel: #101014;
+  text: #e8e8ec;
+  faint: #7a7a85;
+  red: #cc1515;
+  edge: #26262e;
 }
 
 window {
-  background-color: @bg;
+  background-color: @base;
   border: 1px solid @red;
-  width: 620px;
+  width: 640px;
   location: north;
   anchor: center;
   y-offset: 14%;
@@ -23,7 +23,7 @@ inputbar {
   padding: 14px 18px;
   spacing: 14px;
   background-color: @panel;
-  border-bottom: 1px solid @line;
+  border-bottom: 1px solid @edge;
 }
 
 prompt {
@@ -33,9 +33,9 @@ prompt {
 }
 
 entry {
-  placeholder: "search / run...";
-  color: @fg;
-  placeholder-color: @muted;
+  placeholder: "type to search...";
+  color: @text;
+  placeholder-color: @faint;
   caret-color: @red;
 }
 
@@ -44,34 +44,23 @@ listview {
   columns: 1;
   spacing: 2px;
   padding: 10px 10px 14px;
-  background-color: @bg;
+  background-color: @base;
 }
 
 element {
   padding: 7px 14px;
-  color: @muted;
+  color: @faint;
   background-color: transparent;
-  border-radius: 0;
 }
 
 element selected {
-  color: @fg;
+  color: @text;
   background-color: rgba(204, 21, 21, 0.18);
   border-left: 3px solid @red;
 }
 
-scrollbar {
-  width: 5px;
-  background-color: @bg;
-}
+scrollbar { width: 5px; background-color: @base; }
+scrollbar thumb { background-color: @red; }
 
-scrollbar thumb {
-  background-color: @red;
-}
-
-message {
-  padding: 12px;
-  color: @fg;
-  background-color: @panel;
-  border: 1px solid @line;
-}
+message { padding: 12px; color: @text; background-color: @panel; border: 1px solid @edge; }
+error-message { padding: 12px; color: @text; background-color: @red; }

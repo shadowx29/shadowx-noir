@@ -1,161 +1,78 @@
-/* SHADOWX // NOIR — menu-matched rail. */
-@define-color ts_bg #0a0a0a;
-@define-color ts_red #cc1515;
-@define-color ts_text #e8e8e8;
-@define-color ts_muted #a29b96;
-@define-color ts_line rgba(204, 21, 21, 0.27);
-@define-color ts_stat_line rgba(204, 21, 21, 0.65);
+/* SHADOWX // NOIR — bottom rail. Written from scratch. */
+@define-color bg #0d0d10;
+@define-color red #cc1515;
+@define-color fg #e8e8ec;
+@define-color dim #7a7a85;
+@define-color line #26262e;
 
 * {
-  font-family: "IBM Plex Mono", "JetBrainsMono Nerd Font", monospace;
+  font-family: "JetBrainsMono Nerd Font", "IBM Plex Mono", monospace;
   font-size: 12px;
-  font-weight: 400;
-  min-height: 0;
   border: none;
   border-radius: 0;
   padding: 0;
   margin: 0;
-  text-shadow: none;
   box-shadow: none;
+  text-shadow: none;
 }
 
 window#waybar {
-  background-color: @ts_bg;
-  background-image: none;
-  border-bottom: 1px solid alpha(@ts_red, 0.4);
-  color: @ts_text;
+  background-color: @bg;
+  color: @fg;
+  border-top: 1px solid alpha(@red, 0.6);
 }
 
 #workspaces button {
-  min-width: 46px;
+  min-width: 32px;
+  padding: 0 5px;
+  color: @dim;
   background-color: transparent;
-  background-image: none;
-  color: @ts_muted;
-  transition: background-color 150ms ease, color 150ms ease;
+  transition: color 120ms ease, background-color 120ms ease;
 }
 
-#workspaces button:hover {
-  background-color: rgba(204, 21, 21, 0.13);
-  color: @ts_text;
-}
-
-#workspaces button.active,
-#workspaces button.active:hover {
-  min-width: 30px;
-  padding-left: 16px;
-  background-color: @ts_red;
-  background-image: url("assets/workspace-marker.svg");
-  background-repeat: no-repeat;
-  background-size: 9px 9px;
-  background-position: 7px center;
-  color: @ts_bg;
-}
-
-#workspaces button.urgent:not(.active) {
-  color: @ts_red;
-}
+#workspaces button:hover { color: @fg; background-color: rgba(204, 21, 21, 0.15); }
+#workspaces button.active { color: @fg; background-color: @red; }
+#workspaces button.urgent { color: @red; }
 
 #window {
-  color: @ts_text;
-  padding: 0 13px;
+  padding: 0 16px 0 10px;
+  color: @fg;
 }
 
-#custom-shadowx {
-  font-size: 11px;
-  padding: 0 18px;
+#custom-brand {
+  padding: 0 20px;
+  letter-spacing: 1px;
 }
 
-/* Two opposing L corners per reading, not a background grid. */
-#cpu,
-#memory,
-#network,
-#pulseaudio,
-#battery {
-  color: @ts_text;
-  font-weight: 500;
+#cpu, #memory, #network, #pulseaudio, #battery,
+#custom-notes, #custom-clip, #custom-power {
   padding: 0 12px;
-  margin: 6px 4px;
-  background-image:
-    linear-gradient(@ts_stat_line, @ts_stat_line),
-    linear-gradient(@ts_stat_line, @ts_stat_line),
-    linear-gradient(@ts_stat_line, @ts_stat_line),
-    linear-gradient(@ts_stat_line, @ts_stat_line);
-  background-size: 5px 1px, 1px 5px, 5px 1px, 1px 5px;
-  background-position: left top, left top, right bottom, right bottom;
-  background-repeat: no-repeat;
+  margin: 6px 0;
+  border-left: 1px solid @line;
 }
 
-#pulseaudio,
-#custom-power {
-  transition: background-color 150ms ease, color 150ms ease;
+#pulseaudio:hover, #custom-notes:hover, #custom-clip:hover, #custom-power:hover {
+  background-color: @red;
+  color: @bg;
 }
 
-#pulseaudio:hover {
-  color: @ts_bg;
-  background-color: @ts_red;
-}
-
-#pulseaudio.muted,
-#network.disconnected {
-  color: @ts_red;
-}
-
-#pulseaudio.muted:hover {
-  color: @ts_bg;
-}
-
-#battery.warning:not(.charging) {
-  color: @ts_red;
-}
-
-#battery.critical:not(.charging) {
-  color: @ts_bg;
-  background-color: @ts_red;
-}
+#pulseaudio.muted, #network.disconnected, #battery.critical { color: @red; }
+#battery.critical { background-color: @red; color: @bg; }
 
 #clock {
-  min-width: 50px;
-  padding: 0 12px;
-  margin: 6px 4px;
-  font-weight: 500;
+  padding: 0 16px;
+  margin: 6px 0;
+  background-color: @red;
+  color: @bg;
+  font-weight: bold;
   letter-spacing: 1px;
-  color: @ts_bg;
-  background-color: @ts_red;
-  background-image: none;
 }
 
-#custom-power {
-  border-left: 1px solid @ts_line;
-  font-family: "JetBrainsMono Nerd Font", monospace;
-  font-size: 14px;
-  min-width: 38px;
-  color: @ts_red;
-}
-
-#custom-power:hover {
-  color: @ts_bg;
-  background-color: @ts_red;
-}
+#custom-power { font-size: 15px; }
 
 tooltip {
-  background: @ts_bg;
-  border: 1px solid @ts_line;
+  background: @bg;
+  border: 1px solid @red;
 }
 
-tooltip label {
-  color: @ts_text;
-  padding: 6px 8px;
-}
-
-/* Extra modules */
-#custom-notes, #custom-clipboard, #custom-player {
-  padding: 0 10px;
-  margin: 6px 0;
-  color: @ts_muted;
-  border-left: 1px solid @ts_line;
-  font-size: 14px;
-}
-#custom-notes:hover, #custom-clipboard:hover, #custom-player:hover {
-  color: @ts_bg;
-  background-color: @ts_red;
-}
+tooltip label { color: @fg; padding: 6px 9px; }

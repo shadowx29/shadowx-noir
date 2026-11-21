@@ -1,0 +1,80 @@
+{
+  "layer": "bottom",
+  "position": "bottom",
+  "height": 36,
+  "fixed-center": true,
+  "spacing": 0,
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["custom/brand"],
+  "modules-right": ["cpu", "memory", "network", "pulseaudio", "battery", "clock", "custom/notes", "custom/clip", "custom/power"],
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate"
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 40
+  },
+
+  "custom/brand": {
+    "format": "<span foreground='#cc1515'>[</span> SHADOWX <span foreground='#cc1515'>]</span>  <span foreground='#7a7a85'>// NOIR</span>",
+    "tooltip": false
+  },
+
+  "cpu": {
+    "format": "<span foreground='#7a7a85'>CPU</span> {usage:02d}%",
+    "interval": 3
+  },
+
+  "memory": {
+    "format": "<span foreground='#7a7a85'>MEM</span> {percentage}%",
+    "interval": 3
+  },
+
+  "network": {
+    "format-wifi": "<span foreground='#7a7a85'>NET</span> {essid}",
+    "format-ethernet": "<span foreground='#7a7a85'>ETH</span> {ifname}",
+    "format-disconnected": "<span foreground='#cc1515'>NET --</span>",
+    "max-length": 16,
+    "tooltip-format": "{ipaddr}"
+  },
+
+  "pulseaudio": {
+    "format": "<span foreground='#7a7a85'>VOL</span> {volume}%",
+    "format-muted": "<span foreground='#cc1515'>MUTE</span>",
+    "on-click": "pavucontrol"
+  },
+
+  "battery": {
+    "format": "<span foreground='#7a7a85'>BAT</span> {capacity}%",
+    "format-charging": "<span foreground='#7a7a85'>BAT</span> {capacity}%+",
+    "interval": 30,
+    "states": { "warning": 20, "critical": 10 }
+  },
+
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%a %d.%m}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+
+  "custom/notes": {
+    "format": "Notes",
+    "on-click": "$HOME/.config/scripts/notes.sh",
+    "tooltip-format": "Quick notes (Super+N)"
+  },
+
+  "custom/clip": {
+    "format": "Clip",
+    "on-click": "$HOME/.config/scripts/clipboard.sh",
+    "tooltip-format": "Clipboard (Super+C)"
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "$HOME/.config/scripts/power-menu.sh",
+    "tooltip-format": "Power / lock"
+  }
+}
