@@ -172,15 +172,15 @@ def fade(base, overlay, t, fade_in=0.5, fade_out=0.4):
 
 def main():
     scenes = [
-        ("void", bar_overlay()),
-        ("void", terminal_overlay()),
-        ("void", menu_overlay()),
-        ("grid", bar_overlay()),
+        bar_overlay(),
+        terminal_overlay(),
+        menu_overlay(),
+        bar_overlay(),
     ]
     with tempfile.TemporaryDirectory(prefix="shadowx-frames-") as tmp:
         n = 0
-        for idx, (wall, overlay) in enumerate(scenes):
-            path = os.path.join(WALLDIR, f"shadowx-{wall}.png")
+        for idx, overlay in enumerate(scenes):
+            path = os.path.join(WALLDIR, "shadowx-custom-2190504.jpg")
             big = zoomed_wallpaper(path)
             for frame in range(TOTAL):
                 t = frame / FPS

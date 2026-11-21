@@ -40,8 +40,8 @@ def tw(d, txt, font):
     return b[2] - b[0]
 
 
-def background(name="void", dim=125):
-    im = Image.open(os.path.join(WALLDIR, f"shadowx-{name}.png")).convert("RGBA")
+def background(dim=125):
+    im = Image.open(os.path.join(WALLDIR, "shadowx-custom-2190504.jpg")).convert("RGBA").resize((W, H), Image.LANCZOS)
     layer = Image.new("RGBA", (W, H), (0, 0, 0, dim))
     return Image.alpha_composite(im, layer)
 
@@ -70,7 +70,7 @@ def prompt_bar(d, x0, y0, w, label, typed):
 
 
 def app_menu():
-    base = background("void", 120)
+    base = background(120)
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer, "RGBA")
     x0, y0, w, h = 650, 130, 620, 560
@@ -100,7 +100,7 @@ def app_menu():
 
 
 def power_menu():
-    base = background("void", 130)
+    base = background(130)
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer, "RGBA")
     x0, y0, w, h = 650, 150, 620, 420
@@ -119,13 +119,13 @@ def power_menu():
 
 
 def wallpaper_picker():
-    base = background("void", 140)
+    base = background(140)
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer, "RGBA")
     d.text((W // 2 - tw(d, "[SHADOWX] WALLPAPER", F18) // 2, 70),
            "[SHADOWX] WALLPAPER", font=F18, fill=(*RED, 255))
 
-    names = ["shadowx-void.png", "shadowx-grid.png", "shadowx-void.png", "shadowx-grid.png"]
+    names = ["shadowx-custom-2190504.jpg"] * 4
     cw, ch, gap = 420, 236, 26
     x_start = (W - (cw * 2 + gap)) // 2
     y_start = 160
@@ -155,7 +155,7 @@ def wallpaper_picker():
 
 def lock_screen():
     """Picture only — no lock-screen code is shipped with the rice."""
-    base = background("void", 165)
+    base = background(165)
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer, "RGBA")
     cx = W // 2
@@ -185,7 +185,7 @@ def lock_screen():
 
 def terminal_screen():
     """Ghostty-style terminal picture with the SHADOWX Fastfetch banner."""
-    base = background("void", 35)
+    base = background(35)
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer, "RGBA")
 
