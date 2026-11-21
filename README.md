@@ -1,7 +1,7 @@
 # SHADOWX // NOIR
 
 A **complete Kali Linux / Debian port** of the Knights of Sidonia–inspired
-Tsugumori rice — rebuilt for your laptop with **your XFCE keybindings**,
+An original rice for your Kali laptop with **your XFCE keybindings**,
 **your wallpaper**, and **your existing Ghostty terminal**.
 
 - Base: charcoal `#0a0a0a` · accent `#cc1515` · text `#e8e8e8`
@@ -14,9 +14,9 @@ Tsugumori rice — rebuilt for your laptop with **your XFCE keybindings**,
 
 | Your custom wallpaper | Original Sidonia wallpaper |
 |---|---|
-| <img src="assets/wallpapers/shadowx-custom.jpg" alt="custom" width="420"> | <img src="assets/wallpapers/Aleph1.png" alt="Aleph1" width="420"> |
+| <img src="assets/wallpapers/shadowx-custom.jpg" alt="custom" width="420"> | <img src="assets/wallpapers/shadowx-01.png" alt="Wallpaper" width="420"> |
 
-All wallpapers from the original (`Aleph1–4`) plus your custom one are installed
+All bundled wallpapers (`shadowx-01` … `shadowx-04`) plus your custom one are installed
 to `~/Pictures/shadowx-wallpapers/`. Press `SUPER + P` to pick one.
 
 ---
@@ -38,7 +38,7 @@ to `~/Pictures/shadowx-wallpapers/`. Press `SUPER + P` to pick one.
 | Waybar | original Waybar config + style, with extra module buttons |
 | Terminal | **Ghostty** (your existing config, never overwritten) |
 | Fastfetch / btop | original layouts and palettes, rebranded |
-| Fonts | IBM Plex Mono + Share Tech Mono from the original repo |
+| Fonts | IBM Plex Mono + Share Tech Mono |
 | Screenshots | region / window / full via grim + slurp + wl-copy |
 | Lock idle / DPMS | swayidle (5 min lock, 10 min screen off) |
 
@@ -124,7 +124,7 @@ Blur and shadows are off. If video tears, uncomment
 shadowx-complete/
 ├── install.sh
 ├── assets/
-│   ├── wallpapers/      # Aleph1-4 + shadowx-custom.jpg
+│   ├── wallpapers/      # shadowx-01 to 04 + shadowx-custom.jpg
 │   └── fonts/           # Share Tech Mono + IBM Plex Mono
 └── config/
     ├── hypr/            # hyprland.conf + user.conf
@@ -138,5 +138,4 @@ shadowx-complete/
     └── .bashrc
 ```
 
-Base theme inspired by [Tsugumori](https://github.com/Aleph1-9012/Tsugumori.git).
-Rebuilt from scratch for Kali Linux.
+Built from scratch for Kali Linux.

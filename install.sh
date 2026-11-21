@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ═══════════════════════════════════════════════════════════════
 #  SHADOWX // NOIR — complete Kali port installer
-#  from the Tsugumori rice, with your shortcuts, wallpaper & Ghostty
+#  with your shortcuts, wallpaper & Ghostty
 # ═══════════════════════════════════════════════════════════════
 set -euo pipefail
 B=$'\033[1m'; R=$'\033[0m'; RED=$'\033[0;31m'; GRN=$'\033[0;32m'; YEL=$'\033[0;33m'; BLU=$'\033[0;34m'
