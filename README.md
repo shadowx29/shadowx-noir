@@ -7,6 +7,21 @@ anyone else's config. Your shortcuts, your wallpaper, your Ghostty terminal.
 - 1920×1080 laptop · Intel iGPU (blur disabled)
 - Hyprland + Waybar + rofi + dunst + swaylock
 
+## ⭐ Use the XFCE edition (recommended)
+
+Hyprland 0.56.2 on this Kali build has a bug where no input devices are
+registered, so mouse and keyboard don't work. The same look is applied to
+**XFCE**, where everything works. From the extracted folder run:
+
+```bash
+bash config/xfce/setup.sh
+```
+
+That sets the wallpaper, `Kali-Red-Dark` GTK theme, JetBrains Mono font,
+charcoal bottom panel, your shortcuts, and installs a rofi wallpaper picker.
+
+At the login screen pick **XFCE** (it's the default).
+
 ## Wallpaper
 
 <img src="assets/wallpapers/shadowx.jpg" alt="SHADOWX wallpaper" width="760">
