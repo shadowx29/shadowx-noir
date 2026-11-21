@@ -62,7 +62,7 @@ hl.bind("ALT + F3", exec(rofi))
 hl.bind("ALT + F2", exec("env -u WAYLAND_DISPLAY rofi -show run -theme $HOME/.config/rofi/shadowx.rasi"))
 hl.bind("CTRL + Escape", exec(rofi))
 hl.bind("SUPER + R", exec("env -u WAYLAND_DISPLAY rofi -show run -theme $HOME/.config/rofi/shadowx.rasi"))
-hl.bind("SUPER + Space", exec(rofi))
+hl.bind("SUPER + Space", exec(script("menu.sh")))
 hl.bind("SUPER + F1", exec("xdotool mousemove 960 540"))
 
 local term = "ghostty --gtk-single-instance=true"
