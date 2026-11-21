@@ -56,12 +56,12 @@ hl.on("hyprland.start", function()
 end)
 
 -- ── Shortcuts: menus, apps ──────────────────────────────────
-local rofi = "rofi -show drun -theme $HOME/.config/rofi/shadowx.rasi"
+local rofi = "env -u WAYLAND_DISPLAY rofi -show drun -theme $HOME/.config/rofi/shadowx.rasi"
 hl.bind("ALT + F1", exec(rofi))
 hl.bind("ALT + F3", exec(rofi))
-hl.bind("ALT + F2", exec("rofi -show run -theme $HOME/.config/rofi/shadowx.rasi"))
+hl.bind("ALT + F2", exec("env -u WAYLAND_DISPLAY rofi -show run -theme $HOME/.config/rofi/shadowx.rasi"))
 hl.bind("CTRL + Escape", exec(rofi))
-hl.bind("SUPER + R", exec("rofi -show run -theme $HOME/.config/rofi/shadowx.rasi"))
+hl.bind("SUPER + R", exec("env -u WAYLAND_DISPLAY rofi -show run -theme $HOME/.config/rofi/shadowx.rasi"))
 hl.bind("SUPER + Space", exec(rofi))
 hl.bind("SUPER + F1", exec("xdotool mousemove 960 540"))
 

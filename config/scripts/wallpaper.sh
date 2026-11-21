@@ -10,7 +10,7 @@ mapfile -t WALLS < <(find "$WALLDIR" -maxdepth 1 -type f \
 (( ${#WALLS[@]} )) || { dunstify -u critical "SHADOWX" "No wallpapers in $WALLDIR" 2>/dev/null || true; exit 1; }
 
 CURRENT=""; [[ -f "$STATE" ]] && CURRENT=$(basename "$(cat "$STATE")")
-CHOICE=$(printf '%s\n' "${WALLS[@]}" | rofi -dmenu -p '[SHADOWX] WALLPAPER' \
+CHOICE=$(printf '%s\n' "${WALLS[@]}" | env -u WAYLAND_DISPLAY rofi -dmenu -p '[SHADOWX] WALLPAPER' \
   -selected-row 0 -theme "$HOME/.config/rofi/shadowx.rasi") || exit 0
 [[ -n "$CHOICE" ]] || exit 0
 IMG="$WALLDIR/$CHOICE"

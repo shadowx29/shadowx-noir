@@ -51,7 +51,7 @@ cat > "$HOME/.local/bin/shadowx-wallpaper.sh" <<'EOF'
 #!/usr/bin/env bash
 WALLDIR="$HOME/Pictures/shadowx-wallpapers"
 CHOICE=$(find "$WALLDIR" -maxdepth 1 -type f \( -iname '*.jpg' -o -iname '*.png' \) -printf '%f\n' | sort \
-  | rofi -dmenu -p '[SHADOWX] WALLPAPER' -theme "$HOME/.config/rofi/shadowx.rasi") || exit 0
+  | env -u WAYLAND_DISPLAY rofi -dmenu -p '[SHADOWX] WALLPAPER' -theme "$HOME/.config/rofi/shadowx.rasi") || exit 0
 [[ -n "$CHOICE" ]] || exit 0
 IMG="$WALLDIR/$CHOICE"
 for p in $(xfconf-query -c xfce4-desktop -l 2>/dev/null | grep -iE 'image-path|last-image'); do

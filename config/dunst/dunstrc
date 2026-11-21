@@ -20,7 +20,7 @@
     show_age_threshold = 60
     stack_duplicates = true
     startup_notification = false
-    dmenu = rofi -dmenu -p notify -theme $HOME/.config/rofi/shadowx.rasi
+    dmenu = env -u WAYLAND_DISPLAY rofi -dmenu -p notify -theme $HOME/.config/rofi/shadowx.rasi
     browser = xdg-open
 
 [urgency_low]
