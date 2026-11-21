@@ -56,7 +56,14 @@ configs(){
     cp -r "$HERE/config/$d" "$CFG/"
   done
   chmod +x "$CFG/scripts/"* "$CFG/session/shadowx-session" 2>/dev/null || true
-  [[ -f "$CFG/hypr/user.conf" ]] || printf '%s\n' 'monitor = eDP-1, 1920x1080@60, 0x0, 1' > "$CFG/hypr/user.conf"
+  # Native Lua config — remove legacy .conf files so no deprecation warning.
+  [[ -f "$CFG/hypr/user.lua" ]] || cp "$HERE/config/hypr/user.lua" "$CFG/hypr/user.lua"
+  if $BACKUP; then
+    mkdir -p "$BAK/hypr"
+    [[ -f "$CFG/hypr/hyprland.conf" ]] && cp -a "$CFG/hypr/hyprland.conf" "$BAK/hypr/" 2>/dev/null || true
+    [[ -f "$CFG/hypr/user.conf" ]] && cp -a "$CFG/hypr/user.conf" "$BAK/hypr/" 2>/dev/null || true
+  fi
+  rm -f "$CFG/hypr/hyprland.conf" "$CFG/hypr/user.conf"
   if [[ -f "$HERE/config/bash/.bashrc" ]]; then
     if [[ -f "$HOME/.bashrc" ]] && $BACKUP; then mkdir -p "$BAK"; cp -a "$HOME/.bashrc" "$BAK/.bashrc"; fi
     install -m 644 "$HERE/config/bash/.bashrc" "$HOME/.bashrc"
@@ -98,7 +105,7 @@ system(){
 
 verify(){
   command -v Hyprland >/dev/null || return 0
-  Hyprland --verify-config --config "$CFG/hypr/hyprland.conf" >/dev/null 2>&1 \
+  Hyprland --verify-config --config "$CFG/hypr/hyprland.lua" >/dev/null 2>&1 \
     && good "Config verified" || note "Config has errors"
 }
 

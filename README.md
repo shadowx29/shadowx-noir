@@ -5,7 +5,7 @@ anyone else's config. Your shortcuts, your wallpaper, your Ghostty terminal.
 
 - Charcoal `#0a0a0c` · red `#cc1515` · off-white `#e8e8ec`
 - 1920×1080 laptop · Intel iGPU (blur disabled)
-- Hyprland + Waybar + rofi + dunst + swaylock
+- Hyprland (native **Lua** config) + Waybar + rofi + dunst + swaylock
 
 ## ⭐ Use the XFCE edition (recommended)
 
