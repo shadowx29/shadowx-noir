@@ -122,6 +122,22 @@ install_shell() {
     ok ".bashrc installed."
 }
 
+apply_current_wallpaper() {
+    # Also set the wallpaper in XFCE so it shows up before you switch to Hyprland.
+    local img="$CFG/shadowx/wallpaper.current"
+    [[ -f "$img" ]] || return 0
+    local path; path=$(cat "$img")
+    [[ -f "$path" ]] || return 0
+    if command -v xfconf-query >/dev/null 2>&1; then
+        local p
+        for p in $(xfconf-query -c xfce4-desktop -l 2>/dev/null \
+                   | grep -iE 'image-path|last-image'); do
+            xfconf-query -c xfce4-desktop -p "$p" -s "$path" >/dev/null 2>&1 || true
+        done
+        ok "Wallpaper applied in XFCE too."
+    fi
+}
+
 setup_pam() {
     # swaylock needs a PAM service to accept your password on Debian/Kali.
     if [[ ! -f /etc/pam.d/swaylock ]]; then
@@ -144,6 +160,7 @@ main() {
     add_packages
     install_configs
     install_wallpapers
+    apply_current_wallpaper
     install_shell
     setup_pam
 
