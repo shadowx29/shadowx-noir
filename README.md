@@ -58,6 +58,7 @@ The active one is stored in `~/.config/shadowx/wallpaper.current`
 - [Keybindings](#keybindings)
 - [Customization](#customization)
 - [Intel iGPU notes](#intel-igpu-notes)
+- [Nano editor shortcuts](#nano-editor-shortcuts)
 - [Project structure](#project-structure)
 
 ---
@@ -159,6 +160,39 @@ Logout / Suspend / Reboot / Shutdown.
   `hyprland.conf`.
 - To confirm your display name, run `hyprctl monitors` and update the
   `monitor = eDP-1, 1920x1080@60, 0x0, 1` line in `user.conf`.
+
+---
+
+## Nano editor shortcuts
+
+Useful when editing config files from the terminal (`nano ~/.config/hypr/user.conf`).
+`^` means Ctrl, `M-` means Alt/Esc.
+
+| Keys | Action |
+|---|---|
+| `^G` / `F1` | Display help text |
+| `^X` / `F2` | Close buffer / exit nano |
+| `^O` / `F3` | Write (save) file to disk |
+| `^R` / `Ins` | Insert another file into the buffer |
+| `^F` / `^W` | Search forward for a string or regex |
+| `^\` / `M-R` | Replace a string or regex |
+| `^K` / `F9` | Cut current line (or marked region) |
+| `^U` / `F10` | Paste from cutbuffer |
+| `^T` | Execute a function or external command |
+| `^J` / `F4` | Justify current paragraph |
+| `^C` / `F11` | Display cursor position |
+| `^/` / `M-G` | Go to line and column number |
+| `M-U` | Undo last operation |
+| `M-E` | Redo last undone operation |
+| `M-A` / `^6` | Mark text starting at cursor |
+| `M-6` / `M-^` | Copy current line (or marked region) |
+| `M-]` | Go to matching bracket |
+| `^B` / `^Q` | Search backward for a string or regex |
+| `M-B` / `M-Q` | Search next occurrence backward |
+| `M-F` / `M-W` | Search next occurrence forward |
+| `◂` / `▸` | Move back / forward one character |
+
+Quick save & exit: `Ctrl+O` → `Enter` → `Ctrl+X`.
 
 ---
 
