@@ -32,6 +32,13 @@
 
 All images are generated locally by `generate-wallpaper.py` and `generate-screens.py`.
 
+### Custom wallpaper
+
+`assets/wallpapers/shadowx-custom-2190504.jpg` is a personal wallpaper (3840×2160)
+added to the picker. Press `SUPER + P` to switch between all wallpapers.
+The active one is stored in `~/.config/shadowx/wallpaper.current`
+— that is also the image used for the lock screen background.
+
 ---
 
 ## Preview
