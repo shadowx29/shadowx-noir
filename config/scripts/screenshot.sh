@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# SHADOWX // area screenshot to file + clipboard
+# SHADOWX // screenshots: --region | --window | --full
 set -euo pipefail
-
-DIR="$HOME/Pictures/Screenshots"
-mkdir -p "$DIR"
+MODE="${1:---region}"
+DIR="$HOME/Pictures/Screenshots"; mkdir -p "$DIR"
 FILE="$DIR/shadowx-$(date +%Y%m%d-%H%M%S).png"
 
-GEOM=$(slurp) || exit 0
-[[ -n "$GEOM" ]] || exit 0
-
-grim -g "$GEOM" "$FILE"
-wl-copy < "$FILE"
+case "$MODE" in
+  --full)   grim "$FILE" ;;
+  --window) GEOM=$(slurp) || exit 0; grim -g "$GEOM" "$FILE" ;;
+  *)        GEOM=$(slurp) || exit 0; grim -g "$GEOM" "$FILE" ;;
+esac
+wl-copy < "$FILE" 2>/dev/null || true
 dunstify "SHADOWX // SHOT" "$FILE" 2>/dev/null || true

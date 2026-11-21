@@ -1,13 +1,15 @@
-/* SHADOWX // NOIR — bottom rail */
-@define-color bg        #0d0d10;
-@define-color red       #cc1515;
-@define-color fg        #e8e8ec;
-@define-color muted     #7a7a85;
-@define-color line      #26262e;
+/* Tsugumori A: menu-matched rail, with a plain background. */
+@define-color ts_bg #0a0a0a;
+@define-color ts_red #cc1515;
+@define-color ts_text #e8e8e8;
+@define-color ts_muted #a29b96;
+@define-color ts_line rgba(204, 21, 21, 0.27);
+@define-color ts_stat_line rgba(204, 21, 21, 0.65);
 
 * {
-  font-family: "JetBrainsMono Nerd Font", "IBM Plex Mono", monospace;
+  font-family: "IBM Plex Mono", "JetBrainsMono Nerd Font", monospace;
   font-size: 12px;
+  font-weight: 400;
   min-height: 0;
   border: none;
   border-radius: 0;
@@ -18,87 +20,142 @@
 }
 
 window#waybar {
-  background-color: @bg;
-  border-top: 1px solid alpha(@red, 0.55);
-  color: @fg;
+  background-color: @ts_bg;
+  background-image: none;
+  border-bottom: 1px solid alpha(@ts_red, 0.4);
+  color: @ts_text;
 }
 
 #workspaces button {
-  min-width: 34px;
-  padding: 0 6px;
-  color: @muted;
+  min-width: 46px;
   background-color: transparent;
-  transition: color 120ms ease, background-color 120ms ease;
+  background-image: none;
+  color: @ts_muted;
+  transition: background-color 150ms ease, color 150ms ease;
 }
 
 #workspaces button:hover {
-  color: @fg;
-  background-color: rgba(204, 21, 21, 0.12);
+  background-color: rgba(204, 21, 21, 0.13);
+  color: @ts_text;
 }
 
-#workspaces button.active {
-  color: @fg;
-  background-color: @red;
+#workspaces button.active,
+#workspaces button.active:hover {
+  min-width: 30px;
+  padding-left: 16px;
+  background-color: @ts_red;
+  background-image: url("assets/workspace-marker.svg");
+  background-repeat: no-repeat;
+  background-size: 9px 9px;
+  background-position: 7px center;
+  color: @ts_bg;
 }
 
-#workspaces button.urgent {
-  color: @red;
+#workspaces button.urgent:not(.active) {
+  color: @ts_red;
 }
 
 #window {
-  padding: 0 16px 0 10px;
-  color: @fg;
+  color: @ts_text;
+  padding: 0 13px;
 }
 
-#custom-mark {
-  padding: 0 22px;
-  letter-spacing: 1px;
+#custom-sidonia {
+  font-size: 11px;
+  padding: 0 18px;
 }
 
-#cpu, #memory, #network, #pulseaudio, #battery {
-  padding: 0 14px;
-  margin: 5px 0;
-  color: @fg;
-  border-left: 1px solid @line;
+/* Two opposing L corners per reading, not a background grid. */
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#battery {
+  color: @ts_text;
+  font-weight: 500;
+  padding: 0 12px;
+  margin: 6px 4px;
+  background-image:
+    linear-gradient(@ts_stat_line, @ts_stat_line),
+    linear-gradient(@ts_stat_line, @ts_stat_line),
+    linear-gradient(@ts_stat_line, @ts_stat_line),
+    linear-gradient(@ts_stat_line, @ts_stat_line);
+  background-size: 5px 1px, 1px 5px, 5px 1px, 1px 5px;
+  background-position: left top, left top, right bottom, right bottom;
+  background-repeat: no-repeat;
 }
 
-#pulseaudio:hover, #custom-power:hover {
-  background-color: @red;
-  color: @bg;
+#pulseaudio,
+#custom-power {
+  transition: background-color 150ms ease, color 150ms ease;
 }
 
-#pulseaudio.muted, #network.disconnected, #battery.critical {
-  color: @red;
+#pulseaudio:hover {
+  color: @ts_bg;
+  background-color: @ts_red;
 }
 
-#battery.critical {
-  background-color: @red;
-  color: @bg;
+#pulseaudio.muted,
+#network.disconnected {
+  color: @ts_red;
+}
+
+#pulseaudio.muted:hover {
+  color: @ts_bg;
+}
+
+#battery.warning:not(.charging) {
+  color: @ts_red;
+}
+
+#battery.critical:not(.charging) {
+  color: @ts_bg;
+  background-color: @ts_red;
 }
 
 #clock {
-  padding: 0 16px;
-  margin: 5px 0;
-  color: @bg;
-  background-color: @red;
-  font-weight: bold;
+  min-width: 50px;
+  padding: 0 12px;
+  margin: 6px 4px;
+  font-weight: 500;
   letter-spacing: 1px;
+  color: @ts_bg;
+  background-color: @ts_red;
+  background-image: none;
 }
 
 #custom-power {
-  padding: 0 14px;
-  margin: 5px 0;
-  color: @red;
-  border-left: 1px solid @line;
-  font-size: 15px;
+  border-left: 1px solid @ts_line;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 14px;
+  min-width: 38px;
+  color: @ts_red;
+}
+
+#custom-power:hover {
+  color: @ts_bg;
+  background-color: @ts_red;
 }
 
 tooltip {
-  background: @bg;
-  border: 1px solid @red;
+  background: @ts_bg;
+  border: 1px solid @ts_line;
 }
 
 tooltip label {
-  color: @fg;
-  padding: 6px 9px;
+  color: @ts_text;
+  padding: 6px 8px;
+}
+
+/* Extra modules */
+#custom-notes, #custom-clipboard, #custom-player {
+  padding: 0 10px;
+  margin: 6px 0;
+  color: @ts_muted;
+  border-left: 1px solid @ts_line;
+  font-size: 14px;
+}
+#custom-notes:hover, #custom-clipboard:hover, #custom-player:hover {
+  color: @ts_bg;
+  background-color: @ts_red;
 }

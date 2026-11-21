@@ -1,70 +1,104 @@
 {
-  "layer": "bottom",
-  "position": "bottom",
-  "height": 34,
+  "layer": "top",
+  "position": "top",
+  "height": 38,
   "fixed-center": true,
   "spacing": 0,
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
-  "modules-center": ["custom/mark"],
-  "modules-right": ["cpu", "memory", "network", "pulseaudio", "battery", "clock", "custom/power"],
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "custom/sidonia"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "network",
+    "pulseaudio",
+    "battery",
+    "clock",
+    "custom/notes",
+    "custom/clipboard",
+    "custom/player",
+    "custom/power"
+  ],
 
   "hyprland/workspaces": {
-    "format": "{id}",
-    "on-click": "activate",
-    "persistent_workspaces": { "1": false, "2": false, "3": false, "4": false, "5": false }
+    "format": "{id:02d}",
+    "on-click": "activate"
   },
 
   "hyprland/window": {
-    "format": "{title}",
-    "max-length": 40,
-    "separator": "  "
-  },
-
-  "custom/mark": {
-    "format": "<span foreground='#cc1515'>[</span> SHADOWX <span foreground='#cc1515'>]</span>  <span foreground='#7a7a85'>// NOIR</span>",
-    "tooltip": false
+    "format": "<span foreground='#cc1515'>//</span> {title}",
+    "max-length": 32
   },
 
   "cpu": {
-    "format": "<span foreground='#7a7a85'>CPU</span> {usage:02d}%",
+    "format": "<span foreground='#c8c8c4'>CPU</span> <span weight='medium'>{usage:02d}</span><span foreground='#c8c8c4'>%</span>",
     "interval": 3
   },
 
   "memory": {
-    "format": "<span foreground='#7a7a85'>MEM</span> {percentage}%",
+    "format": "<span foreground='#c8c8c4'>MEM</span> <span weight='medium'>{percentage}</span><span foreground='#c8c8c4'>%</span>",
     "interval": 3
   },
 
   "network": {
-    "format-wifi": "<span foreground='#7a7a85'>NET</span> {essid}",
-    "format-ethernet": "<span foreground='#7a7a85'>ETH</span> {ifname}",
-    "format-disconnected": "<span foreground='#cc1515'>NET OFFLINE</span>",
-    "max-length": 16,
-    "tooltip-format": "{ipaddr}"
+    "format-wifi": "<span foreground='#c8c8c4'>NET</span> {essid}",
+    "format-ethernet": "<span foreground='#c8c8c4'>ETH</span> {ifname}",
+    "format-disconnected": "NET --",
+    "max-length": 14,
+    "tooltip-format": "{ipaddr}",
+    "tooltip-format-wifi": "{essid}\n{ipaddr}"
   },
 
   "pulseaudio": {
-    "format": "<span foreground='#7a7a85'>VOL</span> {volume}%",
-    "format-muted": "<span foreground='#cc1515'>MUTE</span>",
-    "on-click": "pavucontrol"
+    "format": "VOL {volume}%",
+    "format-muted": "VOL --",
+    "on-click": "$HOME/.config/scripts/control-center.sh"
   },
 
   "battery": {
-    "format": "<span foreground='#7a7a85'>BAT</span> {capacity}%",
-    "format-charging": "<span foreground='#7a7a85'>BAT</span> {capacity}%+",
+    "format": "BAT {capacity}%",
+    "format-charging": "BAT {capacity}%+",
     "interval": 30,
-    "states": { "warning": 20, "critical": 10 }
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
   },
 
   "clock": {
     "format": "{:%H:%M}",
-    "format-alt": "{:%a %d.%m}",
-    "tooltip-format": "{:%A, %d %B %Y}"
+    "format-alt": "{:%d/%m}",
+    "tooltip-format": "{:%A %d %B %Y}"
+  },
+
+  "custom/sidonia": {
+    "format": "<span foreground='#cc1515' letter_spacing='2048' weight='medium'>SID0NIA</span>  <span foreground='#a29b96'>シドニア</span>",
+    "tooltip": false
   },
 
   "custom/power": {
-    "format": "⏻",
-    "tooltip-format": "Power menu",
-    "on-click": "$HOME/.config/scripts/power-menu.sh"
+    "format": "",
+    "tooltip-format": "Lock screen",
+    "on-click": "$HOME/.config/scripts/lock.sh"
+  }
+
+  ,"custom/notes": {
+    "format": "",
+    "tooltip-format": "Quick notes (SUPER+N)",
+    "on-click": "$HOME/.config/scripts/notes.sh"
+  },
+  "custom/clipboard": {
+    "format": "",
+    "tooltip-format": "Clipboard history (SUPER+C)",
+    "on-click": "$HOME/.config/scripts/clipboard.sh"
+  },
+  "custom/player": {
+    "format": "",
+    "tooltip-format": "Media player (SUPER+SHIFT+Return)",
+    "on-click": "$HOME/.config/scripts/player.sh"
   }
 }

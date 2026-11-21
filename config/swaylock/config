@@ -1,6 +1,4 @@
-# SHADOWX // NOIR — login page styling
-# Clock, date and username are drawn into the generated lock background.
-# The password ring is positioned by swaylock at the centre of that layout.
+# SHADOWX // NOIR login screen — red password ring at 960x610
 scaling=fill
 indicator-idle-visible
 indicator-x-position=960
