@@ -15,9 +15,8 @@ window {
   border-color: @red;
   border-radius: 0;
   width: 640px;
-  location: north;
+  location: center;
   anchor: center;
-  y-offset: 14%;
 }
 
 inputbar {
@@ -59,7 +58,7 @@ element {
 }
 
 element normal.normal {
-  background-color: @base;
+  background-color: @panel;
   text-color: @faint;
 }
 
@@ -74,8 +73,8 @@ element normal.active {
 }
 
 element selected.normal {
-  background-color: rgba(204, 21, 21, 0.25);
-  text-color: @txt;
+  background-color: @red;
+  text-color: @base;
 }
 
 element selected.urgent {
