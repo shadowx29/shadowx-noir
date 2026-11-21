@@ -9,7 +9,7 @@
     "hyprland/window"
   ],
   "modules-center": [
-    "custom/sidonia"
+    "custom/shadowx"
   ],
   "modules-right": [
     "cpu",
@@ -75,7 +75,7 @@
     "tooltip-format": "{:%A %d %B %Y}"
   },
 
-  "custom/sidonia": {
+  "custom/shadowx": {
     "format": "<span foreground='#cc1515' letter_spacing='2048' weight='medium'>SID0NIA</span>  <span foreground='#a29b96'>シドニア</span>",
     "tooltip": false
   },

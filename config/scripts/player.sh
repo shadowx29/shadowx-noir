@@ -5,7 +5,7 @@ command -v playerctl >/dev/null 2>&1 || { dunstify -u critical "SHADOWX" "player
 TITLE=$(playerctl metadata title 2>/dev/null || echo "no media")
 ARTIST=$(playerctl metadata artist 2>/dev/null || echo "")
 C=$(printf 'Play/Pause\nNext\nPrevious\nStop\nOpen mpv\nClose' | rofi -dmenu \
-  -theme "$HOME/.config/rofi/sidonia.rasi" -p "[SHADOWX] $TITLE") || exit 0
+  -theme "$HOME/.config/rofi/shadowx.rasi" -p "[SHADOWX] $TITLE") || exit 0
 case "$C" in
   Play/Pause) playerctl play-pause ;;
   Next) playerctl next ;;

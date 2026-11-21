@@ -1,7 +1,7 @@
 # SHADOWX // NOIR
 
-A **complete Kali Linux / Debian port** of the Knights of Sidonia–inspired
-An original rice for your Kali laptop with **your XFCE keybindings**,
+A **complete desktop rice** for Kali Linux / Debian, built for your laptop
+with **your XFCE keybindings**,
 **your wallpaper**, and **your existing Ghostty terminal**.
 
 - Base: charcoal `#0a0a0a` · accent `#cc1515` · text `#e8e8e8`
@@ -12,32 +12,33 @@ An original rice for your Kali laptop with **your XFCE keybindings**,
 
 ## Wallpapers
 
-| Your custom wallpaper | Original Sidonia wallpaper |
-|---|---|
-| <img src="assets/wallpapers/shadowx-custom.jpg" alt="custom" width="420"> | <img src="assets/wallpapers/shadowx-01.png" alt="Wallpaper" width="420"> |
+## Your wallpaper
 
-All bundled wallpapers (`shadowx-01` … `shadowx-04`) plus your custom one are installed
-to `~/Pictures/shadowx-wallpapers/`. Press `SUPER + P` to pick one.
+<img src="assets/wallpapers/shadowx-custom.jpg" alt="SHADOWX wallpaper" width="760">
+
+The only wallpaper in this rice is yours — `shadowx-custom.jpg`.
+It is installed to `~/Pictures/shadowx-wallpapers/` and used as the desktop
+background and the login-screen background.
 
 ---
 
 ## What's included (full feature set)
 
-| Original feature | Kali port |
+| Feature | Implementation |
 |---|---|
 | Hyprland workspace / animations | Hyprland 0.56 classic config with custom bezier animations |
 | NieR-style Control Center | `control-center.sh` (rofi): Wi-Fi, Bluetooth, volume, brightness, notifications, quickshare, power |
 | App menu & launcher | rofi `drun` / `run` with matching SID0NIA theme |
-| Quickshell lock screen | swaylock + generated login background (live clock, date, `shadowx`, red ring) |
+| Lock screen | swaylock + generated login background (live clock, date, `shadowx`, red ring) |
 | Notifications | dunst, themed red/charcoal |
 | Media player panel | `player.sh` (playerctl + rofi) |
 | Quick notes drawer | `notes.sh` — autosaving notes with rofi |
 | Clipboard history | `clipboard.sh` (cliphist + rofi) |
 | Quickshare | `quickshare.py` — LAN file sharing with QR code |
 | Wallpaper picker | `wallpaper.sh` (rofi) + swaybg daemon |
-| Waybar | original Waybar config + style, with extra module buttons |
+| Waybar | custom config + style with extra module buttons |
 | Terminal | **Ghostty** (your existing config, never overwritten) |
-| Fastfetch / btop | original layouts and palettes, rebranded |
+| Fastfetch / btop | custom layouts and palettes |
 | Fonts | IBM Plex Mono + Share Tech Mono |
 | Screenshots | region / window / full via grim + slurp + wl-copy |
 | Lock idle / DPMS | swayidle (5 min lock, 10 min screen off) |
@@ -106,7 +107,7 @@ Then **log out** and **log back in** — you'll land directly in the rice.
 ## Customize
 
 - **Monitor, keys, overrides:** `~/.config/hypr/user.conf` (preserved)
-- **Colors:** `~/.config/waybar/style.css`, `~/.config/rofi/sidonia.rasi`,
+- **Colors:** `~/.config/waybar/style.css`, `~/.config/rofi/shadowx.rasi`,
   `~/.config/dunst/dunstrc`, `~/.config/btop/themes/shadowx.theme`
 - **Lock username:** `USER = "shadowx"` in `~/.config/scripts/lock-bg.py`
 - **Notes / clipboard data:** `~/.local/share/shadowx/`
@@ -124,17 +125,17 @@ Blur and shadows are off. If video tears, uncomment
 shadowx-complete/
 ├── install.sh
 ├── assets/
-│   ├── wallpapers/      # shadowx-01 to 04 + shadowx-custom.jpg
+│   ├── wallpapers/      # shadowx-custom.jpg (your wallpaper)
 │   └── fonts/           # Share Tech Mono + IBM Plex Mono
 └── config/
     ├── hypr/            # hyprland.conf + user.conf
     ├── waybar/          # config.jsonc + style.css
-    ├── rofi/            # sidonia.rasi
+    ├── rofi/            # shadowx.rasi
     ├── dunst/           # dunstrc
     ├── swaylock/        # login screen
     ├── scripts/         # control center, notes, clipboard, player, quickshare, etc.
     ├── session/         # display-manager wrapper + desktop entry
-    ├── fastfetch/ btop/ # original layouts rebranded
+    ├── fastfetch/ btop/ # custom layouts
     └── .bashrc
 ```
 

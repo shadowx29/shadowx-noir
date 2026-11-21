@@ -11,7 +11,7 @@ mapfile -t WALLS < <(find "$WALLDIR" -maxdepth 1 -type f \
 
 CURRENT=""; [[ -f "$STATE" ]] && CURRENT=$(basename "$(cat "$STATE")")
 CHOICE=$(printf '%s\n' "${WALLS[@]}" | rofi -dmenu -p '[SHADOWX] WALLPAPER' \
-  -selected-row 0 -theme "$HOME/.config/rofi/sidonia.rasi") || exit 0
+  -selected-row 0 -theme "$HOME/.config/rofi/shadowx.rasi") || exit 0
 [[ -n "$CHOICE" ]] || exit 0
 IMG="$WALLDIR/$CHOICE"
 pkill -x swaybg 2>/dev/null || true

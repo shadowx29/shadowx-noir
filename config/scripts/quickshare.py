@@ -13,7 +13,7 @@ SHARE.mkdir(exist_ok=True)
 
 def pick_file():
     result = subprocess.run(
-        ["rofi", "-dmenu", "-theme", str(HOME / ".config/rofi/sidonia.rasi"),
+        ["rofi", "-dmenu", "-theme", str(HOME / ".config/rofi/shadowx.rasi"),
          "-p", "[SHADOWX] QUICKSHARE FILE"],
         input=str(SHARE).encode(), capture_output=True,
     )
@@ -52,7 +52,7 @@ def main():
         pass
     subprocess.run(["dunstify", "SHADOWX // QUICKSHARE", url])
     subprocess.run(["rofi", "-e", f"Share link (Ctrl+C):\n{url}\n\nPress Esc when done",
-                    "-theme", str(HOME / ".config/rofi/sidonia.rasi")])
+                    "-theme", str(HOME / ".config/rofi/shadowx.rasi")])
     server.shutdown()
 
 
