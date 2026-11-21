@@ -28,7 +28,7 @@ def width(d, txt, fnt):
 
 
 def main():
-    wall = os.path.join(WALLDIR, "shadowx-void.png")
+    wall = os.path.join(WALLDIR, "shadowx-custom-2190504.jpg")
     if os.path.isfile(STATE):
         with open(STATE) as fh:
             saved = fh.read().strip()

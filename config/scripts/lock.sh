@@ -5,7 +5,7 @@ set -euo pipefail
 WALLDIR="$HOME/Pictures/shadowx-wallpapers"
 STATE="$HOME/.config/shadowx/wallpaper.current"
 LOCKBG="$HOME/.config/shadowx/lock-bg.png"
-FALLBACK="$WALLDIR/shadowx-void.png"
+FALLBACK="$WALLDIR/shadowx-custom-2190504.jpg"
 
 WALL="$FALLBACK"
 [[ -f "$STATE" ]] && CURRENT=$(cat "$STATE") && [[ -f "$CURRENT" ]] && WALL="$CURRENT"

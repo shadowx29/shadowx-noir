@@ -1,7 +1,7 @@
 # SHADOWX // NOIR
 
 <p align="center">
-  <img src="assets/wallpapers/shadowx-void.png" alt="SHADOWX NOIR wallpaper" width="800">
+  <img src="assets/wallpapers/shadowx-custom-2190504.jpg" alt="SHADOWX NOIR wallpaper" width="800">
 </p>
 
 <p align="center">
@@ -14,9 +14,9 @@
 
 ## Gallery
 
-| Main wallpaper | Alternate wallpaper |
-|---|---|
-| <img src="assets/wallpapers/shadowx-void.png" alt="shadowx-void" width="420"> | <img src="assets/wallpapers/shadowx-grid.png" alt="shadowx-grid" width="420"> |
+### Wallpaper
+
+<img src="assets/wallpapers/shadowx-custom-2190504.jpg" alt="Wallpaper" width="520">
 
 | App menu | Power menu |
 |---|---|
@@ -30,12 +30,12 @@
 
 <img src="assets/screenshots/lock-screen.png" alt="Lock screen" width="520">
 
-All images are generated locally by `generate-wallpaper.py` and `generate-screens.py`.
+UI mockups are generated locally by `generate-screens.py`.
 
 ### Custom wallpaper
 
 `assets/wallpapers/shadowx-custom-2190504.jpg` is a personal wallpaper (3840×2160)
-added to the picker. Press `SUPER + P` to switch between all wallpapers.
+Press `SUPER + P` to re-apply it.
 The active one is stored in `~/.config/shadowx/wallpaper.current`
 — that is also the image used for the lock screen background.
 
@@ -43,7 +43,7 @@ The active one is stored in `~/.config/shadowx/wallpaper.current`
 
 ## Preview
 
-[![SHADOWX // NOIR preview](assets/wallpapers/shadowx-void.png)](assets/preview.mp4)
+[![SHADOWX // NOIR preview](assets/wallpapers/shadowx-custom-2190504.jpg)](assets/preview.mp4)
 
 [Watch the 16-second animated preview (MP4, 1920×1080)](assets/preview.mp4)
 
@@ -75,8 +75,8 @@ The installer:
 1. Installs the required packages with `apt`
 2. Backs up existing configs to `~/.config-backup-shadowx-<timestamp>`
 3. Deploys the dotfiles into `~/.config`
-4. Installs both wallpapers into `~/Pictures/shadowx-wallpapers`
-5. Sets `shadowx-void.png` as the boot wallpaper
+4. Installs the wallpaper into `~/Pictures/shadowx-wallpapers`
+5. Sets the wallpaper as the boot background
 
 After it finishes, **log out** and select **Hyprland** at the login screen.
 
@@ -96,7 +96,7 @@ After it finishes, **log out** and select **Hyprland** at the login screen.
 | Terminal banner | Fastfetch | `~/.config/shadowx/fastfetch.jsonc` |
 | System monitor | btop | `~/.config/btop/` |
 | Notifications | dunst | `~/.config/dunst/dunstrc` |
-| Wallpaper | swaybg + rofi picker | `~/.config/scripts/wallpaper.sh` |
+| Wallpaper | swaybg | `~/.config/scripts/wallpaper.sh` |
 | Media | mpv | `~/.config/mpv/mpv.conf` |
 | Lock screen | swaylock + swayidle | `~/.config/swaylock/` |
 | Power menu | rofi + systemctl | `~/.config/scripts/power-menu.sh` |
@@ -145,7 +145,6 @@ Logout / Suspend / Reboot / Shutdown.
 - **Colors:** `~/.config/waybar/style.css`, `~/.config/ghostty/config.ghostty`,
   `~/.config/rofi/shadowx.rasi`, `~/.config/btop/themes/shadowx.theme`
 - **Wallpapers:** `~/Pictures/shadowx-wallpapers/`
-- **Regenerate wallpapers:** `python3 generate-wallpaper.py`
 - **Lock screen username:** edit `USER = "shadowx"` in
   `~/.config/scripts/lock-bg.py`
 - **Shell overrides:** `~/.bashrc.local`
@@ -169,15 +168,13 @@ Logout / Suspend / Reboot / Shutdown.
 shadowx-noir/
 ├── README.md
 ├── install.sh
-├── generate-wallpaper.py
 ├── generate-screens.py
 ├── generate-preview.py
 ├── assets/
 │   ├── preview.mp4
 │   ├── screenshots/     # app-menu, power-menu, wallpaper-picker, terminal, lock-screen
 │   └── wallpapers/
-│       ├── shadowx-void.png
-│       └── shadowx-grid.png
+│       └── shadowx-custom-2190504.jpg
 └── config/
     ├── hypr/        # hyprland.conf + user.conf
     ├── waybar/      # config.jsonc + style.css

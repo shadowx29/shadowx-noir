@@ -107,7 +107,7 @@ install_wallpapers() {
     local dest="$HOME/Pictures/shadowx-wallpapers"
     mkdir -p "$dest" "$HOME/Pictures/Screenshots"
     cp -n "$HERE"/assets/wallpapers/* "$dest/" 2>/dev/null || true
-    printf '%s\n' "$dest/shadowx-void.png" > "$CFG/shadowx/wallpaper.current"
+    printf '%s\n' "$dest/shadowx-custom-2190504.jpg" > "$CFG/shadowx/wallpaper.current"
     ok "Wallpapers installed."
 }
 
