@@ -21,14 +21,14 @@ done
 
 say "Theme and fonts"
 xfconf-query -c xsettings -p /Net/ThemeName -s "Kali-Red-Dark" 2>/dev/null || true
-xfconf-query -c xsettings -p /Net/FontName -s "JetBrainsMono Nerd Font 11" 2>/dev/null || true
-xfconf-query -c xsettings -p /Net/MonospaceFontName -s "JetBrainsMono Nerd Font 11" 2>/dev/null || true
+xfconf-query -c xsettings -p /Gtk/FontName -n -t string -s "JetBrainsMono Nerd Font 11" 2>/dev/null || xfconf-query -c xsettings -p /Gtk/FontName -s "JetBrainsMono Nerd Font 11" 2>/dev/null || true
+xfconf-query -c xsettings -p /Gtk/MonospaceFontName -n -t string -s "JetBrainsMono Nerd Font 11" 2>/dev/null || xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "JetBrainsMono Nerd Font 11" 2>/dev/null || true
 
 say "Panel (bottom, 30px, charcoal)"
-xfconf-query -c xfce4-panel -p /panels/panel-0/position -s bottom 2>/dev/null || true
-xfconf-query -c xfce4-panel -p /panels/panel-0/size -s 30 2>/dev/null || true
-xfconf-query -c xfce4-panel -p /panels/panel-0/length -s 100 2>/dev/null || true
-xfconf-query -c xfce4-panel -p /panels/panel-0/background-style -s 1 2>/dev/null || true
+xfconf-query -c xfce4-panel -p /panels/panel-0/position -n -t string -s bottom 2>/dev/null || xfconf-query -c xfce4-panel -p /panels/panel-0/position -s bottom 2>/dev/null || true
+xfconf-query -c xfce4-panel -p /panels/panel-0/size -n -t int -s 30 2>/dev/null || xfconf-query -c xfce4-panel -p /panels/panel-0/size -s 30 2>/dev/null || true
+xfconf-query -c xfce4-panel -p /panels/panel-0/length -n -t int -s 100 2>/dev/null || xfconf-query -c xfce4-panel -p /panels/panel-0/length -s 100 2>/dev/null || true
+xfconf-query -c xfce4-panel -p /panels/panel-0/background-style -n -t uint -s 1 2>/dev/null || xfconf-query -c xfce4-panel -p /panels/panel-0/background-style -s 1 2>/dev/null || true
 xfconf-query -c xfce4-panel -p /panels/panel-0/background-color -t uint16 -s 10 -s 10 -s 12 -s 255 2>/dev/null || true
 
 say "Shortcuts"
@@ -43,7 +43,8 @@ addkey '<Super>f' 'nautilus'
 addkey '<Super>p' "$HOME/.local/bin/shadowx-wallpaper.sh"
 addkey '<Super>n' "$HOME/.config/scripts/notes.sh"
 addkey '<Super>c' "$HOME/.config/scripts/clipboard.sh"
-addkey '<Super>Tab' "$HOME/.config/scripts/control-center.sh"
+xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>Tab" -r 2>/dev/null || true
+addkey '<Super><Shift>Tab' "$HOME/.config/scripts/control-center.sh"
 addkey '<Primary><Alt>l' 'xflock4'
 
 say "Wallpaper picker script"
