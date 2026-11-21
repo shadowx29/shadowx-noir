@@ -53,7 +53,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("dunst")
     hl.exec_cmd("/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 &")
     hl.exec_cmd("nm-applet --indicator &")
-    hl.exec_cmd("swayidle -w timeout 300 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' &")
+    hl.exec_cmd(script("power-save.sh"))
 end)
 
 -- ── Shortcuts: menus, apps ──────────────────────────────────
