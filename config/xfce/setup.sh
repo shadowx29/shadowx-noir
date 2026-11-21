@@ -45,7 +45,6 @@ addkey '<Super>n' "$HOME/.config/scripts/notes.sh"
 addkey '<Super>c' "$HOME/.config/scripts/clipboard.sh"
 xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>Tab" -r 2>/dev/null || true
 addkey '<Super><Shift>Tab' "$HOME/.config/scripts/control-center.sh"
-addkey '<Primary><Alt>l' 'xflock4'
 
 say "Wallpaper picker script"
 cat > "$HOME/.local/bin/shadowx-wallpaper.sh" <<'EOF'

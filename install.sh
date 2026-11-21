@@ -16,7 +16,7 @@ CFG="${XDG_CONFIG_HOME:-$HOME/.config}"
 BAK="$HOME/.config-backup-shadowx-$(date +%Y%m%d-%H%M%S)"
 
 PKGS=(
-  hyprland hyprland-qtutils hyprland-guiutils waybar rofi dunst swaybg swaylock swayidle
+  hyprland hyprland-qtutils hyprland-guiutils waybar rofi dunst swaybg
   grim slurp wl-clipboard cliphist brightnessctl playerctl xdotool
   pipewire pipewire-pulse wireplumber pavucontrol
   fastfetch btop mpv nautilus network-manager blueman
@@ -49,7 +49,7 @@ configs(){
   say "Deploying configs..."
   mkdir -p "$CFG" "$HOME/Pictures/shadowx-wallpapers" "$CFG/shadowx"
   local d
-  for d in hypr waybar rofi dunst swaylock scripts session fastfetch btop; do
+  for d in hypr waybar rofi dunst scripts session fastfetch btop; do
     if [[ -e "$CFG/$d" || -L "$CFG/$d" ]]; then
       if $BACKUP; then mkdir -p "$BAK"; mv "$CFG/$d" "$BAK/$d"; else rm -rf "$CFG/$d"; fi
     fi
@@ -86,10 +86,6 @@ assets(){
 }
 
 system(){
-  if [[ ! -f /etc/pam.d/swaylock ]]; then
-    printf '%%PAM-1.0\n@include common-auth\n@include common-account\n@include common-session\n' \
-      | sudo tee /etc/pam.d/swaylock >/dev/null 2>&1 && good "PAM ready"
-  fi
   sudo install -m 755 "$HERE/config/session/shadowx-session" /usr/local/bin/shadowx-session 2>/dev/null || note "session wrapper failed"
   sudo install -m 644 "$HERE/config/session/shadowx.desktop" /usr/share/wayland-sessions/shadowx.desktop 2>/dev/null || note "session entry failed"
   printf '[Seat:*]\nuser-session=shadowx\n' > "$HERE/.sess"

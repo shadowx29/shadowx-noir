@@ -150,31 +150,6 @@ def wallpaper_picker():
     save(Image.alpha_composite(base, layer), "wallpaper-picker.png")
 
 
-def lock():
-    base = bg(165)
-    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    d = ImageDraw.Draw(layer, "RGBA")
-    cx = W // 2
-    d.line([(cx - 60, 150), (cx + 60, 270)], fill=(*RED, 235), width=8)
-    d.line([(cx + 60, 150), (cx - 60, 270)], fill=(*RED, 235), width=8)
-    d.ellipse([cx - 20, 195, cx + 20, 235], outline=(*RED, 255), width=4)
-    clock = "21:47"
-    d.text((cx - width(d, clock, F56) // 2, 320), clock, font=F56, fill=(*FG, 255))
-    date = "FRI 20 NOV 2026"
-    d.text((cx - width(d, date, F14) // 2, 420), date, font=F14, fill=(*MUTE, 255))
-    cy = 610
-    d.ellipse([cx - 62, cy - 62, cx + 62, cy + 62], outline=(*LINE, 255), width=6)
-    d.arc([cx - 62, cy - 62, cx + 62, cy + 62], start=0, end=280, fill=(*RED, 255), width=6)
-    d.ellipse([cx - 48, cy - 48, cx + 48, cy + 48], fill=(12, 12, 16, 245))
-    dots = "••••"
-    d.text((cx - width(d, dots, F18) // 2, cy - 18), dots, font=F18, fill=(*FG, 255))
-    user = "shadowx"
-    d.text((cx - width(d, user, F14) // 2, cy + 96), user, font=F14, fill=(*MUTE, 255))
-    foot = "SHADOWX // NOIR  —  ENTER PASSWORD"
-    d.text((cx - width(d, foot, F12) // 2, H - 90), foot, font=F12, fill=(*RED, 255))
-    save(Image.alpha_composite(base, layer), "lock-screen.png")
-
-
 def notes():
     base = bg(140)
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -204,6 +179,5 @@ if __name__ == "__main__":
     menu()
     control_center()
     wallpaper_picker()
-    lock()
     notes()
     player()

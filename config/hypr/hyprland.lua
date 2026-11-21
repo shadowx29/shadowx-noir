@@ -34,7 +34,7 @@ hl.config({
         touchpad = { natural_scroll = true, tap_to_click = true },
     },
     misc = {
-        disable_hyprland_logo = true, vrr = 0, allow_session_lock_restore = true,
+        disable_hyprland_logo = true, vrr = 0,
         disable_watchdog_warning = true, disable_hyprland_guiutils_check = true,
         disable_xdg_env_checks = true,
     },
@@ -51,7 +51,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("waybar")
     hl.exec_cmd("swaybg -i $HOME/Pictures/shadowx-wallpapers/shadowx.jpg -m fill")
     hl.exec_cmd("dunst")
-    hl.exec_cmd("swayidle -w timeout 300 " .. script("lock.sh") .. " timeout 600 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' &")
     hl.exec_cmd("/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 &")
     hl.exec_cmd("nm-applet --indicator &")
 end)
@@ -130,8 +129,6 @@ hl.bind("SUPER + N", exec(script("notes.sh")))
 hl.bind("SUPER + C", exec(script("clipboard.sh")))
 hl.bind("SUPER + SHIFT + Return", exec(script("player.sh")))
 hl.bind("SUPER + P", exec(script("wallpaper.sh")))
-hl.bind("SUPER + L", exec(script("lock.sh")))
-hl.bind("CTRL + ALT + L", exec(script("lock.sh")))
 hl.bind("CTRL + ALT + Delete", exec(script("power-menu.sh")))
 hl.bind("SUPER + ALT + R", exec("hyprctl reload"))
 
