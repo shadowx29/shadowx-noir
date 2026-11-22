@@ -29,18 +29,18 @@ def main():
     d = ImageDraw.Draw(img, "RGBA")
 
     clock = "21:47"
-    f_clock = font(200)
-    d.text(((W - width(d, clock, f_clock)) // 2, 250), clock,
+    f_clock = font(150)
+    d.text(((W - width(d, clock, f_clock)) // 2, 120), clock,
            font=f_clock, fill=(232, 232, 236, 255))
 
     date = "FRI 20 NOV 2026"
-    f_date = font(46)
-    d.text(((W - width(d, date, f_date)) // 2, 490), date,
+    f_date = font(36)
+    d.text(((W - width(d, date, f_date)) // 2, 300), date,
            font=f_date, fill=(122, 122, 133, 220))
 
-    status = "SHADOWX // LOCKED"
-    f_status = font(86)
-    d.text(((W - width(d, status, f_status)) // 2, 620), status,
+    status = "SHADOWX // SECURE"
+    f_status = font(52)
+    d.text(((W - width(d, status, f_status)) // 2, 820), status,
            font=f_status, fill=(*RED, 255))
 
     # Password indicator ring — bottom-right, matching the config.
