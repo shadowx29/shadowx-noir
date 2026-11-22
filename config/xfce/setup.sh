@@ -41,7 +41,6 @@ addkey '<Super>Return' 'ghostty --gtk-single-instance=true'
 addkey '<Super>e' 'nautilus'
 addkey '<Super>f' 'nautilus'
 addkey '<Super>p' "$HOME/.local/bin/shadowx-wallpaper.sh"
-addkey '<Primary><Alt>l' "$HOME/.config/scripts/i3-lock.sh"
 addkey '<Super>space' 'env -u WAYLAND_DISPLAY rofi -show drun -theme $HOME/.config/rofi/shadowx.rasi'
 addkey '<Super><Shift>space' "$HOME/.config/scripts/menu.sh"
 addkey '<Super>n' "$HOME/.config/scripts/notes.sh"

@@ -132,8 +132,6 @@ hl.bind("SUPER + C", exec(script("clipboard.sh")))
 hl.bind("SUPER + SHIFT + Return", exec(script("player.sh")))
 hl.bind("SUPER + P", exec(script("wallpaper.sh")))
 hl.bind("CTRL + ALT + Delete", exec(script("power-menu.sh")))
-hl.bind("SUPER + L", exec(script("i3-lock.sh")))
-hl.bind("CTRL + ALT + L", exec(script("i3-lock.sh")))
 hl.bind("SUPER + ALT + R", exec("hyprctl reload"))
 
 -- ── Hardware ────────────────────────────────────────────────

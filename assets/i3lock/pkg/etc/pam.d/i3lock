@@ -1,8 +1,0 @@
-#
-# PAM configuration file for the i3lock screen locker.
-# This deviates from upstream to better integrate the the Debian way of doing
-# things.
-
-@include common-auth
-@include common-account
-
