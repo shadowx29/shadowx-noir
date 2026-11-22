@@ -1,7 +1,5 @@
 # SHADOWX // NOIR
 
-My own desktop rice for Kali Linux — **written from scratch**, not copied from
-anyone else's config. Your shortcuts, your wallpaper, your Ghostty terminal.
 
 - Charcoal `#0a0a0c` · red `#cc1515` · off-white `#e8e8ec`
 - 1920×1080 laptop · Intel iGPU (blur disabled)
@@ -22,12 +20,7 @@ charcoal bottom panel, your shortcuts, and installs a rofi wallpaper picker.
 
 At the login screen pick **XFCE** (it's the default).
 
-## Wallpaper
 
-<img src="assets/wallpapers/shadowx.jpg" alt="SHADOWX wallpaper" width="760">
-
-Only one wallpaper — yours. It becomes both the desktop background and the
-login-screen background. `Super+P` reapplies it.
 
 ## Screenshots
 
