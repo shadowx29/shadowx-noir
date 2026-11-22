@@ -45,6 +45,10 @@ Real screenshots from the running rice.
 
 <img src="assets/screenshots/power-menu.png" alt="Power menu" width="520">
 
+### Your i3 lock screen
+
+<img src="assets/screenshots/i3-lock-screen.png" alt="i3lock screen" width="520">
+
 ## Features
 
 | Feature | How |
