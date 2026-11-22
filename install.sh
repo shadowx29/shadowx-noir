@@ -195,6 +195,24 @@ assets(){
   good "Wallpaper installed."
 }
 
+
+i3lock_assets(){
+  say "Installing your i3lock screen..."
+  local target="$HOME/lockscreen"
+  mkdir -p "$target"
+  cp -a "$HERE/assets/i3lock/." "$target/" 2>/dev/null || return 0
+  chmod +x "$target/pkg/usr/bin/i3lock" "$target/pkg/usr/bin/xprintidle" 2>/dev/null || true
+  printf '%s\n' "$target/background.png" > "$target/background"
+  # PAM service (needed to unlock)
+  if [[ ! -f /etc/pam.d/i3lock ]]; then
+    local pam="$target/pkg/etc/pam.d/i3lock"
+    case "$PM" in
+      apt|zypper|dnf|apk|xbps) "${PRIV[@]}" install -m 644 "$pam" /etc/pam.d/i3lock 2>/dev/null && good "i3lock PAM installed" || note "install /etc/pam.d/i3lock manually" ;;
+      pacman) printf 'auth required pam_unix.so\naccount required pam_unix.so\n' > "$HERE/.pam" && "${PRIV[@]}" install -m 644 "$HERE/.pam" /etc/pam.d/i3lock 2>/dev/null && good "i3lock PAM installed" || note "install /etc/pam.d/i3lock manually"; rm -f "$HERE/.pam" ;;
+    esac
+  fi
+}
+
 system(){
   "${PRIV[@]}" install -m 755 "$HERE/config/session/shadowx-session" /usr/local/bin/shadowx-session 2>/dev/null || note "session wrapper failed"
   "${PRIV[@]}" install -m 644 "$HERE/config/session/shadowx.desktop" /usr/share/wayland-sessions/shadowx.desktop 2>/dev/null || note "session entry failed"
@@ -235,7 +253,7 @@ verify(){
 main(){
   printf '\n%sSHADOWX // NOIR%s — universal installer (%s / %s)\n\n' "$B" "$R" "$DISTRO" "$PM"
   BACKUP=true; ask "Back up old configs?" y || BACKUP=false
-  preflight; packages; configs; assets; system; verify
+  preflight; packages; configs; assets; i3lock_assets; system; verify
   printf '\n%sDone.%s Log out and select SHADOWX // NOIR (or plain Hyprland).\n' "$G" "$R"
 }
 main "$@"

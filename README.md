@@ -70,6 +70,12 @@ The installer auto-detects the distro and package manager:
 bash install.sh --check   # show detected system and package list
 ```
 
+## Lock screen
+
+Your i3lock setup is bundled in `assets/i3lock/` and installed to `~/lockscreen/`
+(binary, background, ring colors, clock text — all your values).
+Unlock with your normal password. Press `Super+L` / `Ctrl+Alt+L` to lock.
+
 ## Install
 
 ```bash
